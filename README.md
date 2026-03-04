@@ -1,3 +1,12 @@
+
+# Project Archived
+
+This repository is now archived. The related Microsoft program has been discontinued, and the project will no longer be maintained (no new features, bug fixes, or support).
+
+Important: ContributorID is no longer tracked by Microsoft Learn and the MVP Program; it is no longer automatically added as a contribution to Annual Review.
+
+If the program returns, I’d be happy to revisit this project and evaluate continuing maintenance or publishing an updated version.
+---
 Available for Chrome, Edge and Firefox:
 
 <a target="_blank" href="https://chrome.google.com/webstore/detail/mvp-docs-learn-champion-e/eichjbmnicihhbhodbejfkceoknaclfd">
