@@ -6,36 +6,30 @@
     "message": "Uma extensão de navegador independente para Microsoft Learn Student Ambassadors."
   },
   "optionsTitle": {
-    "message": "Opções do Ambassador Link"
+    "message": "Opções do Contributor Link"
   },
   "optionsHeader": {
-    "message": "Ambassador Link"
+    "message": "Ambassador Referral Linker"
+  },
+  "lblContributorId": {
+    "message": "Contributor ID"
   },
   "placeholderId": {
-    "message": "Digite seu Ambassador ID (ex: studentamb_123456)"
+    "message": "Digite seu Contributor ID (ex: studentamb_123456)"
   },
   "btnSave": {
-    "message": "Salvar Ambassador ID"
-  },
-  "lblYourIds": {
-    "message": "Seus Ambassador IDs:"
-  },
-  "btnRemove": {
-    "message": "Remover ID Selecionado"
+    "message": "Salvar Contributor ID"
   },
   "chkLangNeutral": {
     "message": "Tornar URLs neutras de idioma (remover /en-us, /pt-br, etc)"
-  },
-  "msgIdExists": {
-    "message": "Ambassador ID já existe"
   },
   "msgOptionsSaved": {
     "message": "Opções salvas."
   },
   "ctxCopyLink": {
-    "message": "Copiar link com Ambassador ID"
+    "message": "Copiar link com Contributor ID"
   },
   "ctxCopyPage": {
-    "message": "Copiar URL da página com Ambassador ID"
+    "message": "Copiar URL da página com Contributor ID"
   }
 }

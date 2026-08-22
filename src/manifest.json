@@ -5,7 +5,8 @@
   "description": "__MSG_extDescription__",
   "default_locale": "en",
   "background": {
-    "service_worker": "main.js"
+    "service_worker": "main.js",
+    "type": "module"
   },
   "action": {
     "default_popup": "options.html",
@@ -23,8 +24,7 @@
     "contextMenus",
     "storage",
     "clipboardWrite",
-    "offscreen",
-    "nativeMessaging"
+    "offscreen"
   ],
   "icons": {
     "16": "icon16.png",

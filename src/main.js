@@ -1,3 +1,4 @@
+import { createReferralUrl } from "./url-utils.js";
 
 const extensionPrefix = "-msa"; // msa stands for Microsoft Student Ambassador
 const parentIdPagePostfix = extensionPrefix + "-page";
@@ -6,6 +7,7 @@ const regexIdPostfix = new RegExp(
   parentIdPagePostfix + "$|" + parentIdLinkPostfix + "$",
   "i"
 );
+
 const suitableSites = [
   "*://azure.microsoft.com/*",
   "*://blog.fabric.microsoft.com/*",
@@ -19,38 +21,25 @@ const suitableSites = [
   "*://events.microsoft.com/*",
   "*://imaginecup.microsoft.com/*",
   "*://learn.microsoft.com/*",
-  "*://microsoft.com/*",
+  "*://*.microsoft.com/*",
   "*://powerbi.microsoft.com/*",
   "*://reactor.microsoft.com/*",
   "*://studentambassadors.microsoft.com/*",
   "*://techcommunity.microsoft.com/*"
 ];
 
-var makeNeutralURL = false; // toggle for removal of language code from URLs
-
 chrome.contextMenus.onClicked.addListener(async function (itemData) {
-  var linkUrl =
+  const linkUrl =
     itemData.linkUrl !== undefined ? itemData.linkUrl : itemData.pageUrl;
-  var url = new URL(linkUrl);
 
-  // check if this specific ambassador ID is already appended to prevent duplicates
-  var ambassadorId = itemData.menuItemId.replace(regexIdPostfix, "");
-  let existingParams = url.searchParams.getAll("wt.mc_id");
-  let alreadyExists = existingParams.some(p => p.toLowerCase() === ambassadorId.toLowerCase());
-  
-  if (!alreadyExists) {
-    url.searchParams.append("wt.mc_id", ambassadorId);
-  }
-  
-  if (makeNeutralURL) {
-    // Matches /en-us, /pt-br, /es-es, etc at the start of the path
-    url.pathname = url.pathname.replace(/^\/[a-zA-Z]{2}-[a-zA-Z]{2}(-[a-zA-Z]{2})?(?=\/|$)/i, "");
-    if (!url.pathname.startsWith('/')) {
-        url.pathname = '/' + url.pathname;
-    }
-  }
+  const contributorId = itemData.menuItemId.replace(regexIdPostfix, "");
 
-  await setClipboardUsingOffscreenDocument(url.href);
+  // Load language settings dynamically from storage to prevent SW suspension bugs
+  const { makeNeutralURL = false } = await chrome.storage.sync.get("makeNeutralURL");
+
+  const referralUrl = createReferralUrl(linkUrl, contributorId, makeNeutralURL);
+
+  await setClipboardUsingOffscreenDocument(referralUrl);
 });
 
 async function setClipboardUsingOffscreenDocument(text) {
@@ -65,22 +54,31 @@ async function setClipboardUsingOffscreenDocument(text) {
     // If the offscreen document already exists, an error will be thrown. This is expected.
   }
 
-  // Send message to offscreen document
-  chrome.runtime.sendMessage({
-    type: "copy-to-clipboard",
-    target: "offscreen",
-    data: text,
-  });
+  // Send message to offscreen document and close it after copy
+  chrome.runtime.sendMessage(
+    {
+      type: "copy-to-clipboard",
+      target: "offscreen",
+      data: text,
+    },
+    async () => {
+      try {
+        await chrome.offscreen.closeDocument();
+      } catch (e) {
+        // Ignore errors when closing
+      }
+    }
+  );
 }
 
-function createContextMenues(ambassadorId) {
+function createContextMenus(contributorId) {
   chrome.contextMenus.removeAll();
-  if (!ambassadorId) {
+  if (!contributorId) {
     return;
   }
 
-  let linkParentId = ambassadorId + parentIdLinkPostfix;
-  let pageParentId = ambassadorId + parentIdPagePostfix;
+  const linkParentId = contributorId + parentIdLinkPostfix;
+  const pageParentId = contributorId + parentIdPagePostfix;
 
   chrome.contextMenus.create({
     title: chrome.i18n.getMessage("ctxCopyLink"),
@@ -97,14 +95,16 @@ function createContextMenues(ambassadorId) {
   });
 }
 
-function updateContextMenues() {
+function updateContextMenus() {
   chrome.storage.sync.get(
     {
-      ambassadorId: "",
+      contributorId: "",
+      ambassadorId: "" // Fallback for old version
     },
     function (items) {
-      if (items && items.ambassadorId) {
-        createContextMenues(items.ambassadorId);
+      const activeId = items.contributorId || items.ambassadorId || "";
+      if (activeId) {
+        createContextMenus(activeId);
       } else {
         chrome.contextMenus.removeAll();
       }
@@ -112,28 +112,23 @@ function updateContextMenues() {
   );
 }
 
-// Load Language options from chrome.storage
-function restoreLangOptions() {
-  chrome.storage.sync.get(
-    {
-      makeNeutralURL: false
-    },
-    function (items) {
-      makeNeutralURL = items.makeNeutralURL;
-    }
-  );
-}
-
-chrome.runtime.onMessage.addListener(function (request) {
-  if (request === "updateMSAContextMenues") {
-    updateContextMenues();
-    restoreLangOptions();
+// Lifecycle listeners
+chrome.runtime.onInstalled.addListener(async () => {
+  // Run storage migration on install or upgrade
+  const items = await chrome.storage.sync.get(["ambassadorId", "contributorId"]);
+  if (items.ambassadorId && !items.contributorId) {
+    await chrome.storage.sync.set({ contributorId: items.ambassadorId });
   }
+  updateContextMenus();
 });
 
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-  if (changeInfo.status == "complete") {
-    updateContextMenues();
-    restoreLangOptions();
+chrome.runtime.onStartup.addListener(() => {
+  updateContextMenus();
+});
+
+// React to option modifications automatically without sendMessage race conditions
+chrome.storage.onChanged.addListener((changes, areaName) => {
+  if (areaName === "sync" && (changes.contributorId || changes.ambassadorId || changes.makeNeutralURL)) {
+    updateContextMenus();
   }
 });

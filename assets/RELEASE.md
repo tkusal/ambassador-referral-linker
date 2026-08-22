@@ -1,44 +1,37 @@
-# Release information
+# Release Information
 
-## Tag the repo to start the release workflow
+## Tag the repository to trigger the release workflow
 
 ```bash
-git tag v1.4.4
+git tag v1.0.0
 git push origin --tags
 ```
 
-## Upload description
+## Upload Description
 
-This extension can be used by Microsoft MVPs for the Microsoft Skilling Champion program. It allows to copy links with an added CreatorId. The context menue is only visible on certain sites:
+This extension is designed for Microsoft Learn Student Ambassadors. It allows you to easily copy links or page URLs with your Contributor ID (`wt.mc_id`) attached, ensuring your sharing activities are correctly tracked. 
 
-"http://social.technet.microsoft.com/*",
-"https://docs.microsoft.com/*",
-"https://learn.microsoft.com/*",
-"https://azure.microsoft.com/*",
-"https://techcommunity.microsoft.com/*",
-"https://social.msdn.microsoft.com/*",
-"https://devblogs.microsoft.com/*",
-"https://developer.microsoft.com/*",
-"https://channel9.msdn.com/*",
-"https://gallery.technet.microsoft.com/*",
-"https://cloudblogs.microsoft.com/*",
-"https://technet.microsoft.com/*",
-"https://docs.azure.cn/*",
-"https://www.azure.cn/*",
-"https://msdn.microsoft.com/*",
-"https://blogs.msdn.microsoft.com/*",
-"https://blogs.technet.microsoft.com/*",
-"https://microsoft.com/handsonlabs/*",
-"https://csc.docs.microsoft.com/*
+The context menu is available on the following sites and their subdomains:
 
-And only on links. To test this extension:
+- `learn.microsoft.com`
+- `azure.microsoft.com`
+- `code.visualstudio.com`
+- `copilot.microsoft.com`
+- `devblogs.microsoft.com`
+- `developer.microsoft.com`
+- `dotnet.microsoft.com`
+- `events.microsoft.com`
+- `imaginecup.microsoft.com`
+- `powerbi.microsoft.com`
+- `reactor.microsoft.com`
+- `studentambassadors.microsoft.com`
+- `techcommunity.microsoft.com`
+- `*.microsoft.com` (and all subdomains/routes like insidetrack, startups, fabric, etc.)
 
-1. Go to the extension settings and add your CreatorID (like AZ-MVP-5003203)
-2. Got to one of the above listed sites e. g. https://docs.microsoft.com/en-us/
-3. Right click on a link e. g. on ".NET"
-4. Select "Copy link address with CreatorID"
+## How to use:
 
-Now your Clipboard contains the link you clicked on with your attached CreatorID, e. g.:
-https://docs.microsoft.com/en-us/dotnet/?WT.mc_id=AZ-MVP-5003203
-instead of
-https://docs.microsoft.com/en-us/dotnet/
+1. Open the extension options page and save your **Contributor ID** (e.g., `studentamb_123456`).
+2. Go to any supported Microsoft site (such as https://learn.microsoft.com/).
+3. Right-click on a link or the page.
+4. Select **Copy link address with Contributor ID** or **Copy page URL with Contributor ID**.
+5. Your clipboard will contain the URL with your Contributor ID appended as a `wt.mc_id` query parameter.

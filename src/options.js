@@ -7,9 +7,9 @@ const savedIdDisplay = document.querySelector("#savedIdDisplay");
 btnSave.onclick = (e) => {
   e.preventDefault();
 
-  let ambassadorId = trimAmbassadorId(namefield.value);
+  const contributorId = trimContributorId(namefield.value);
 
-  if (!ambassadorId) {
+  if (!contributorId) {
     error.textContent = "ID não pode ser vazio / ID cannot be empty.";
     setTimeout(function () {
       error.textContent = "";
@@ -17,52 +17,52 @@ btnSave.onclick = (e) => {
     return;
   }
 
-  saveAmbassadorId(ambassadorId);
-  saveLangOptions();
+  const idRegex = /^[a-zA-Z0-9_-]+$/;
+  if (!idRegex.test(contributorId)) {
+    error.textContent = "ID inválido (apenas letras, números, _ e -) / Invalid ID (letters, numbers, _ and - only).";
+    setTimeout(function () {
+      error.textContent = "";
+    }, 3000);
+    return;
+  }
 
-  savedIdDisplay.textContent = "ID Salvo: " + ambassadorId;
+  saveOptions(contributorId, chkLangNeutral.checked);
 
-  var status = document.getElementById("status");
+  savedIdDisplay.textContent = "ID Salvo / Saved ID: " + contributorId;
+
+  const status = document.getElementById("status");
   status.textContent = chrome.i18n.getMessage("msgOptionsSaved");
   setTimeout(function () {
     status.textContent = "";
   }, 750);
 };
 
-function trimAmbassadorId(ambassadorId) {
-  return ambassadorId.replace(/[\?&][wW][tT]\.[mM][cC]_[iI][dD]=/, "").trim();
+function trimContributorId(id) {
+  return id.replace(/[\?&][wW][tT]\.[mM][cC]_[iI][dD]=/, "").trim();
 }
 
-function saveAmbassadorId(ambassadorId) {
-  chrome.storage.sync.set(
-    {
-      ambassadorId: ambassadorId,
-    },
-    function () {}
-  );
-
-  chrome.runtime.sendMessage("updateMSAContextMenues");
-}
-
-function saveLangOptions() {
-  var makeNeutralURL = document.getElementById("chkLangNeutral").checked;
+function saveOptions(contributorId, makeNeutralURL) {
+  // Save both configurations concurrently to prevent race conditions
   chrome.storage.sync.set({
-      makeNeutralURL: makeNeutralURL
+    contributorId: contributorId,
+    makeNeutralURL: makeNeutralURL
   });
 }
 
 function restoreOptions() {
   chrome.storage.sync.get(
     {
-      ambassadorId: "",
+      contributorId: "",
+      ambassadorId: "", // Fallback
       makeNeutralURL: false
     },
     function (items) {
-      namefield.value = items.ambassadorId;
-      if (items.ambassadorId) {
-        savedIdDisplay.textContent = "ID Salvo: " + items.ambassadorId;
+      const savedId = items.contributorId || items.ambassadorId || "";
+      namefield.value = savedId;
+      if (savedId) {
+        savedIdDisplay.textContent = "ID Salvo / Saved ID: " + savedId;
       }
-      document.getElementById("chkLangNeutral").checked = items.makeNeutralURL;
+      chkLangNeutral.checked = items.makeNeutralURL;
     }
   );
 }

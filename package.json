@@ -1,0 +1,17 @@
+{
+  "name": "ambassador-referral-linker",
+  "version": "1.0.0",
+  "description": "Browser extension for Microsoft Learn Student Ambassadors that adds your Contributor ID to Microsoft links.",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/**/*.test.js"
+  },
+  "keywords": [
+    "microsoft",
+    "ambassador",
+    "referral",
+    "contributor"
+  ],
+  "author": "Thiago Kusal",
+  "license": "MIT"
+}

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title data-i18n="optionsTitle">Ambassador Link Options</title>
+    <title data-i18n="optionsTitle">Contributor Link Options</title>
     <meta charset="UTF-8" />
 </head>
 <style>
@@ -40,22 +40,12 @@
         padding: 16px;
     }
 
-    label,
-    select {
+    label {
         font-size: 1.05em;
         display: block;
-        margin: 10px 0;
+        margin: 10px 0 5px 0;
         color: #323130;
-    }
-
-    select {
-        width: 100%;
-        font-size: 1em;
-        padding: 8px;
-        overflow: auto;
-        border: 1px solid #8a8886;
-        border-radius: 4px;
-        background-color: #faf9f8;
+        font-weight: 600;
     }
 
     button {
@@ -76,17 +66,7 @@
         cursor: pointer;
     }
 
-    #btnRemove {
-        background: #d13438;
-        margin-top: 10px;
-    }
-
-    #btnRemove:hover {
-        background: #a4262c;
-    }
-
     form input[type="text"] {
-        outline: none;
         box-sizing: border-box;
         width: 100%;
         background: #fff;
@@ -101,6 +81,7 @@
     form input[type="text"]:focus {
         box-shadow: 0 0 0 2px #3b8575;
         border: 1px solid transparent;
+        outline: none;
     }
 
     .checkbox-container {
@@ -108,12 +89,14 @@
         align-items: center;
         margin: 15px 0;
         font-size: 0.95em;
+        cursor: pointer;
     }
 
     .checkbox-container input[type="checkbox"] {
         margin-right: 10px;
         width: 18px;
         height: 18px;
+        cursor: pointer;
     }
 
     #error {
@@ -131,18 +114,13 @@
         margin-top: 10px;
         min-height: 20px;
     }
-
-    select:focus,
-    button:focus,
-    button:hover {
-        outline: none;
-    }
 </style>
 
 <body>
     <div id="container">
-        <div class="header" data-i18n="optionsHeader">Ambassador Link</div>
+        <div class="header" data-i18n="optionsHeader">Ambassador Referral Linker</div>
         <form>
+            <label for="name" data-i18n="lblContributorId">Contributor ID</label>
             <input type="text" id="name" data-i18n-placeholder="placeholderId" autocomplete="off">
             <div id="error"></div>
             
@@ -153,10 +131,10 @@
                 </label>
             </div>
 
-            <button id="btnSave" data-i18n="btnSave" style="margin-top: 15px;">Save Ambassador ID</button>
+            <button id="btnSave" data-i18n="btnSave" style="margin-top: 15px;">Save Contributor ID</button>
             <div id="savedIdDisplay" style="margin-top: 15px; text-align: center; font-weight: bold; color: #3b8575;"></div>
 
-            <div id="status"></div>
+            <div id="status" aria-live="polite"></div>
         </form>
     </div>
 
