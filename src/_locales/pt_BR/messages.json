@@ -20,6 +20,9 @@
   "btnSave": {
     "message": "Salvar Contributor ID"
   },
+  "btnHelp": {
+    "message": "Ajuda / Como usar"
+  },
   "chkLangNeutral": {
     "message": "Tornar URLs neutras de idioma (remover /en-us, /pt-br, etc)"
   },

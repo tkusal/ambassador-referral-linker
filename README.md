@@ -1,104 +1,107 @@
 # Ambassador Referral Linker
 
-An independent browser extension for Microsoft Learn Student Ambassadors that adds your Contributor ID to Microsoft links and optionally creates language-neutral URLs.
+An independent browser extension for Microsoft Learn Student Ambassadors.
 
-Based on the [Skilling Champion Extension](https://github.com/mjisaak/skilling-champion-extension) by Martin Brandl.
+[English](#english) | [Português](#português)
 
-## Features
+---
 
-- **Automatic Contributor ID Insertion**: Appends your `wt.mc_id` Contributor ID to Microsoft links via the context menu.
-- **Smart Parameter Handling**: Resolves conflicts with existing `wt.mc_id` query parameters case-insensitively, keeping your URLs clean and unambiguous.
-- **Language-Neutral URL Conversion**: Optionally strips locale codes (e.g. `/en-us/`, `/pt-br/`, `/es-419/`, `/zh-hans/`) from URLs. This allows Microsoft sites to serve content in the target user's preferred browser language.
-- **Privacy-First**: The extension runs entirely in the browser, does not inspect page content, and does not transmit any browsing history or data to external servers.
+<a id="english"></a>
+## English
 
-## Installation
+Based on the [Skilling Champion Extension](https://github.com/mjisaak/skilling-champion-extension) by Martin Brandl (mjisaak).
+Licensed under the MIT License.
 
-### For Google Chrome
+This extension allows you to easily copy a link or page URL appending your Microsoft Student Ambassador (MSA) Contributor ID, ensuring your activities and shared links are tracked correctly for your Community Influencer milestones.
 
-1. Download this repository as a ZIP file (or clone it) and extract it.
-2. Open Google Chrome and navigate to `chrome://extensions/`.
-3. Enable **Developer mode** in the top-right corner.
-4. Click **Load unpacked** in the top-left and select the `src` folder inside the extracted directory.
+It ensures that the Ambassador ID is properly added to the URL (`?wt.mc_id=...` or `&wt.mc_id=...`). It also provides an option to make URLs "language-neutral" (e.g., automatically removing `/en-us/` or `/pt-br/`), enabling Microsoft sites to detect the preferred language of the user who clicks your link.
 
-### For Microsoft Edge
+### How to use
 
-1. Download this repository as a ZIP file (or clone it) and extract it.
-2. Open Microsoft Edge and navigate to `edge://extensions/`.
-3. Enable **Developer mode** in the left sidebar.
-4. Click **Load unpacked** and select the `src` folder inside the extracted directory.
+#### 1. Configure your ID
+After you have installed the extension, click the extension icon in your browser toolbar to open the popup. Enter your Ambassador ID (e.g. `studentamb_123456`) and click **Save**. You only need to do this once.
 
-## How to Find Your Contributor ID
+You can also check the option to make URLs "language-neutral" to make your links more friendly to a global audience.
 
-1. Go to your Microsoft Learn Student Ambassadors dashboard.
-2. Locate your Contributor/Referral ID (typically in the format `studentamb_123456` or similar numeric formats).
-3. Copy this ID for configuration in the extension.
+#### 2. Copying Links
+After you have specified your Ambassador ID, navigate to any eligible Microsoft site. You have two options to create a tracked link:
 
-## Usage
+* **Copy the page URL:** Right-click anywhere on a blank space of the page and select *"Copy page url with Ambassador ID"*.
+* **Copy a specific link:** Right-click on a hyperlink inside the page and select *"Copy link address with Ambassador ID"*.
 
-### 1. Configure the Extension
+The perfectly formatted link will be copied to your clipboard, ready to be pasted on your social networks!
 
-- Click the extension icon in your browser toolbar to open the options page.
-- Enter your **Contributor ID** in the input field.
-- (Optional) Check the **Make URLs language-neutral** box.
-- Click **Save Contributor ID**.
+![Usage Example](assets/usage_example.png)
 
-### 2. Copy Referral Links
+### Suitable Sites
+Currently, the extension operates and injects IDs on the following sites:
+* azure.microsoft.com
+* blog.fabric.microsoft.com
+* code.visualstudio.com
+* community.fabric.microsoft.com
+* community.powerplatform.com
+* copilot.microsoft.com
+* devblogs.microsoft.com
+* developer.microsoft.com
+* dotnet.microsoft.com
+* events.microsoft.com
+* foundershub.startups.microsoft.com
+* imaginecup.microsoft.com
+* learn.microsoft.com
+* microsoft.com (and subdomains/routes like insidetrack, startups, fabric, cloud, etc)
+* mvp.microsoft.com
+* powerbi.microsoft.com
+* reactor.microsoft.com
+* studentambassadors.microsoft.com
+* techcommunity.microsoft.com
 
-Right-click on any supported Microsoft page or link to access the context menu options:
-- **Copy link address with Contributor ID**: Appends your ID to a clicked link.
-- **Copy page URL with Contributor ID**: Appends your ID to the current page's URL.
+---
 
-## Supported Microsoft Sites
+<a id="português"></a>
+## Português
 
-The extension operates on the following domains and their subdomains:
-- `learn.microsoft.com`
-- `azure.microsoft.com`
-- `code.visualstudio.com`
-- `copilot.microsoft.com`
-- `devblogs.microsoft.com`
-- `developer.microsoft.com`
-- `dotnet.microsoft.com`
-- `events.microsoft.com`
-- `imaginecup.microsoft.com`
-- `powerbi.microsoft.com`
-- `reactor.microsoft.com`
-- `studentambassadors.microsoft.com`
-- `techcommunity.microsoft.com`
-- `*.microsoft.com` (and all subdomains/routes like insidetrack, startups, fabric, etc.)
+Baseado na [Skilling Champion Extension](https://github.com/mjisaak/skilling-champion-extension) por Martin Brandl (mjisaak).
+Licenciado sob a Licença MIT.
 
-## How Language-Neutral URLs Work
+Esta extensão permite que você copie facilmente a URL de uma página anexando o seu Contributor ID do Microsoft Student Ambassador (MSA), garantindo que suas atividades e links compartilhados sejam rastreados corretamente para as suas métricas de Community Influencer.
 
-When sharing Microsoft links globally, regional prefixes in the URL (such as `/en-us/` or `/pt-br/`) force the visitor's browser to display the content in that specific language/locale. 
+A extensão garante que o ID seja adicionado corretamente à URL (usando `?wt.mc_id=...` ou `&wt.mc_id=...`). Ela também fornece a opção de tornar as URLs "neutras de idioma" (removendo automaticamente `/pt-br/` ou `/en-us/`), permitindo que os sites da Microsoft detectem o idioma preferido do usuário que clicar no seu link.
 
-By checking **Make URLs language-neutral**, the extension automatically strips these prefixes from the copied URL. When other users click the clean link, Microsoft sites will automatically detect their browser's language setting and show the page in their preferred local language.
+### Como usar
 
-## Privacy & Security
+#### 1. Configure seu ID
+Após instalar a extensão, clique no ícone dela na barra do seu navegador para abrir o menu rápido. Digite o seu Ambassador ID (ex: `studentamb_123456`) e clique em **Salvar**. Você só precisa fazer isso uma vez.
 
-This extension respects your privacy:
-- **No external telemetry**: It does not read page content or send browsing data to external servers.
-- **Browser Sync**: It uses `chrome.storage.sync` to securely save your Contributor ID and settings, allowing it to sync across your signed-in browser profiles (e.g. between devices) using standard browser synchronization protocols.
+Você também pode marcar a opção para tornar as URLs "neutras de idioma", tornando seus links mais amigáveis para um público global.
 
-## Development
+#### 2. Copiando Links
+Após configurar o seu ID, navegue até qualquer site da Microsoft elegível. Você tem duas opções para gerar um link rastreado:
 
-You can run automated tests to check URL processing logic using Node.js (version 18 or later):
+* **Copiar a URL da página atual:** Clique com o botão direito do mouse em qualquer espaço em branco (vazio) da página e selecione *"Copiar URL da página com Ambassador ID"*.
+* **Copiar um link específico:** Clique com o botão direito em cima de um hiperlink dentro da página e selecione *"Copiar endereço do link com Ambassador ID"*.
 
-```bash
-npm install
-npm test
-```
+O link perfeitamente formatado será copiado para a sua área de transferência (clipboard), pronto para ser colado (Ctrl+V) nas suas redes sociais!
 
-## Contributing
+![Exemplo de Uso](assets/usage_example.png)
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) and [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md) for details on how to submit pull requests and contribute to the project.
-
-## Credits
-
-This project is a modern, independent continuation of the [Skilling Champion Extension](https://github.com/mjisaak/skilling-champion-extension) originally created by Martin Brandl.
-
-## License
-
-This project is open-source and licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-## Disclaimer
-
-This is an independent open-source project and is not affiliated with, endorsed by, or maintained by Microsoft.
+### Sites Suportados
+Atualmente, a extensão opera nos seguintes sites:
+* azure.microsoft.com
+* blog.fabric.microsoft.com
+* code.visualstudio.com
+* community.fabric.microsoft.com
+* community.powerplatform.com
+* copilot.microsoft.com
+* devblogs.microsoft.com
+* developer.microsoft.com
+* dotnet.microsoft.com
+* events.microsoft.com
+* foundershub.startups.microsoft.com
+* imaginecup.microsoft.com
+* learn.microsoft.com
+* microsoft.com (e subdomínios/rotas como insidetrack, startups, fabric, cloud, etc)
+* mvp.microsoft.com
+* powerbi.microsoft.com
+* reactor.microsoft.com
+* studentambassadors.microsoft.com
+* techcommunity.microsoft.com
