@@ -9,12 +9,12 @@ const chkLanguageneutralAll = document.querySelector("#chkLanguageneutralAll");
 btnAdd.onclick = (e) => {
   e.preventDefault();
 
-  let creatorId = trimCreatorId(namefield.value);
+  let ambassadorId = trimAmbassadorId(namefield.value);
   let values = Object.keys(sb.options).map((f) => sb.options[f].value);
 
   // ensure there are no duplicates
-  if (values.includes(creatorId)) {
-    error.textContent = "CreatorId already exists";
+  if (values.includes(ambassadorId)) {
+    error.textContent = chrome.i18n.getMessage("msgIdExists");
 
     setTimeout(function () {
       error.textContent = "";
@@ -24,31 +24,31 @@ btnAdd.onclick = (e) => {
     return;
   }
 
-  const option = new Option(creatorId, creatorId);
+  const option = new Option(ambassadorId, ambassadorId);
   sb.add(option, undefined);
 
-  saveCreatorIds();
+  saveAmbassadorIds();
 
   // reset the value of the input
   namefield.value = "";
   namefield.focus();
 };
 
-function trimCreatorId(creatorId) {
-  return creatorId.replace("?WT.mc_id=", "").trim();
+function trimAmbassadorId(ambassadorId) {
+  return ambassadorId.replace("?WT.mc_id=", "").trim();
 }
 
-function saveCreatorIds() {
-  let creatorIds = Object.keys(sb.options).map((f) => sb.options[f].value);
+function saveAmbassadorIds() {
+  let ambassadorIds = Object.keys(sb.options).map((f) => sb.options[f].value);
 
   chrome.storage.sync.set(
     {
-      list: creatorIds,
+      list: ambassadorIds,
     },
     function () {}
   );
 
-  chrome.runtime.sendMessage("updateSkillingChampionContextMenues");
+  chrome.runtime.sendMessage("updateMSAContextMenues");
 }
 
 btnRemove.onclick = (e) => {
@@ -69,7 +69,7 @@ btnRemove.onclick = (e) => {
     }
   }
 
-  saveCreatorIds();
+  saveAmbassadorIds();
 };
 
 chkLanguageneutral.onchange = (e) => {
@@ -96,7 +96,7 @@ function saveLangOptions() {
     function () {
       // Update status to let user know options were saved.
       var status = document.getElementById("status");
-      status.textContent = "Options saved.";
+      status.textContent = chrome.i18n.getMessage("msgOptionsSaved");
       setTimeout(function () {
         status.textContent = "";
       }, 750);
@@ -138,4 +138,16 @@ function restoreOptions() {
   );
 }
 
-document.addEventListener("DOMContentLoaded", restoreOptions);
+function localizeUI() {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    el.textContent = chrome.i18n.getMessage(el.getAttribute('data-i18n'));
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    el.placeholder = chrome.i18n.getMessage(el.getAttribute('data-i18n-placeholder'));
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  localizeUI();
+  restoreOptions();
+});

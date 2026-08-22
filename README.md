@@ -1,92 +1,48 @@
+# Ambassador Referral Linker
 
-# Project Archived
+An independent browser extension for Microsoft Learn Student Ambassadors.
 
-This repository is now archived. The related Microsoft program has been discontinued, and the project will no longer be maintained (no new features, bug fixes, or support).
+Based on the [Skilling Champion Extension](https://github.com/mjisaak/skilling-champion-extension) by Martin Brandl (mjisaak).
+Licensed under the MIT License.
 
-Important: ContributorID is no longer tracked by Microsoft Learn and the MVP Program; it is no longer automatically added as a contribution to Annual Review.
-If the program returns, I’d be happy to revisit this project and evaluate continuing maintenance or publishing an updated version.
+This extension allows you to easily copy a link or page URL appending your Microsoft Student Ambassador (MSA) ID, ensuring your activities and shared links are tracked correctly.
 
----
-Available for Chrome, Edge and Firefox:
-
-<a target="_blank" href="https://chrome.google.com/webstore/detail/mvp-docs-learn-champion-e/eichjbmnicihhbhodbejfkceoknaclfd">
-<img src="./assets/chrome-badge.png" height="60" title="Click here to install this sample from the Chrome Web Store">
-</a>
-
-<a target="_blank" href="https://microsoftedge.microsoft.com/addons/detail/mvp-docs-learn-champion/fmbcbeaecledoacfmelbailimfbcjpkb">
-<img src="./assets/edge-badge.png" height="60" title="Click here to install this sample from the Edge Store">
-</a>
-
-<a target="_blank" href="https://addons.mozilla.org/en-US/firefox/addon/mvp-docs-learn-champion">
-<img src="./assets/firefox-badge.png" height="60" title="Click here to install this sample from the Edge Store">
-</a>
-
-# Skilling Champion extension
-
-This extensions allows you to copy a link / page url with your Skilling Champion CreatorID.
-
-It ensures that the CreatorID is correctly added to the URL, so you don't have to worry about whether the URL already contains a query. It also provides the option to make English URL "language neutral" by removing "en-us" - this will enable most Microsoft sites to detect the preferred language of the user and serve the content in that language.
-
-
+It ensures that the Ambassador ID is properly added to the URL, so you don't have to worry about whether the URL already contains query parameters. It also provides an option to make English URLs (or any other language specific URLs) "language-neutral" (e.g., removing "en-us"). This enables Microsoft sites to detect the preferred language of the user who clicks your link and serve content in their local language.
 
 ## Usage
 
 ### 1. Configure Options
 
-After you have installed the extension, please specify your CreatorIDs within the extension options. You can find your MVP contributor id in your profile under "Program Information". Use only the part after "=" of your id. 
+After you have installed the extension, please specify your Ambassador ID within the extension options.
 
-![Extension Options](./assets/screenshot_options.png)
-
-You can also check "Make English URLs language-neutral" or "Make language-specific URLs language-neutral" to make your links more friendly to a global audience. These language-neutral URLs will allow the destination website to match the user's language preference. 
-The first option will only transform English URLs (that contain "en-us") while the second will transforms URLs of any language.
+You can also check options to make URLs "language-neutral" to make your links more friendly to a global audience.
 
 ### 2. Use the extension
 
-After you have specified your CreatorID you will have two options to create a link including your CreatorID
+After you have specified your Ambassador ID, you will have two options to create a link:
 
-* **Copy a page url** - right click anywhere on a [suitable page](#suitable-sites) and select "*Copy page url with CreatorID*"
+* **Copy a page URL** - right click anywhere on a suitable page and select "*Copy page url with Ambassador ID*"
+* **Copy a link** - right click on a link on a suitable page and select "*Copy link address with Ambassador ID*"
 
-![copy page url](./assets/copy-page-url.png)
+**Note:** If you have specified multiple IDs, the context menu will allow you to choose one of them.
 
-* **Copy a link** - right click on a **link** on a [suitable page](#suitable-sites) and select "*Copy link address with CreatorID*"
+## Suitable Sites
 
-![copy Link Address](./assets/copy-link-address.png)
-
-**Note:** If you have specified multiple CreatorIDs, the context menues will allow you to choose one of them:
-
-![multiple creator ids](./assets/multiple-creator-ids.png)
-
-<a name="suitable-sites"></a>
-## suitable Sites
-
-Currently, the Skilling Champion program tracks references from the following sites:
-
-* https://azure.microsoft.com
-* https://blog.fabric.microsoft.com
-* https://blogs.msdn.microsoft.com
-* https://blogs.technet.microsoft.com
-* https://channel9.msdn.com
-* https://cloudblogs.microsoft.com
-* https://code.visualstudio.com
-* https://community.fabric.microsoft.com
-* https://csc.docs.microsoft.com
-* https://devblogs.microsoft.com
-* https://developer.microsoft.com
-* https://dotnet.microsoft.com 
-* https://docs.azure.cn
-* https://docs.microsoft.com
-* https://events.microsoft.Com
-* https://foundershub.startups.microsoft.Com 
-* https://gallery.technet.microsoft.com
-* https://imaginecup.microsoft.com
-* https://learn.microsoft.com
-* https://microsoft.com/handsonlabs
-* https://msdn.microsoft.com
-* https://mvp.microsoft.com 
-* https://powerbi.microsoft.com
-* https://Reactor.microsrft.Com 
-* https://social.msdn.microsoft.com
-* https://social.technet.microsoft.com
-* https://techcommunity.microsoft.com
-* https://technet.microsoft.com
-* https://www.azure.cn
+Currently, the extension operates and injects IDs on the following sites:
+* azure.microsoft.com
+* blog.fabric.microsoft.com
+* code.visualstudio.com
+* community.fabric.microsoft.com
+* community.powerplatform.com
+* copilot.microsoft.com
+* devblogs.microsoft.com
+* developer.microsoft.com
+* dotnet.microsoft.com
+* events.microsoft.com
+* imaginecup.microsoft.com
+* learn.microsoft.com
+* microsoft.com (and subdomains/routes like insidetrack, startups, fabric, etc)
+* powerbi.microsoft.com
+* reactor.microsoft.com
+* studentambassadors.microsoft.com
+* techcommunity.microsoft.com

@@ -1,8 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Skilling Champion extension",
-  "version": "1.4.4",
-  "description": "Copy link address with CreatorID",
+  "name": "__MSG_extName__",
+  "version": "1.0.0",
+  "description": "__MSG_extDescription__",
+  "default_locale": "en",
   "background": {
     "service_worker": "main.js"
   },

@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>Skilling Champion extension Options</title>
+    <title data-i18n="optionsTitle">Ambassador Link Options</title>
     <meta charset="UTF-8" />
 </head>
 <style>
     body {
-        font-family: 'Open Sans', sans-serif;
-        background-color: white;
+        font-family: 'Segoe UI', 'Open Sans', sans-serif;
+        background-color: #f3f2f1;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -18,9 +18,20 @@
 
     #container {
         background-color: #fff;
-        border-radius: 5px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        width: 400px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        width: 450px;
+    }
+
+    .header {
+        background: linear-gradient(135deg, #8fd0a3, #295a52);
+        color: white;
+        padding: 15px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        text-align: center;
+        font-size: 1.2em;
+        font-weight: bold;
     }
 
     form {
@@ -31,32 +42,47 @@
 
     label,
     select {
-        font-size: 1.1em;
+        font-size: 1.05em;
         display: block;
         margin: 10px 0;
+        color: #323130;
     }
 
     select {
         width: 100%;
         font-size: 1em;
-        padding: 5px;
+        padding: 8px;
         overflow: auto;
-        border: 1px solid #ccc;
+        border: 1px solid #8a8886;
+        border-radius: 4px;
+        background-color: #faf9f8;
     }
 
     button {
         box-sizing: border-box;
         width: 100%;
-        padding: 3%;
-        background: #0072BC;
+        padding: 12px;
+        background: #3b8575;
         border: none;
         color: #fff;
         font-size: 14px;
+        border-radius: 4px;
+        font-weight: 600;
+        transition: background-color 0.2s;
     }
 
     button:hover {
-        background: #4472C4;
+        background: #295a52;
         cursor: pointer;
+    }
+
+    #btnRemove {
+        background: #d13438;
+        margin-top: 10px;
+    }
+
+    #btnRemove:hover {
+        background: #a4262c;
     }
 
     form input[type="text"] {
@@ -65,21 +91,45 @@
         width: 100%;
         background: #fff;
         margin-bottom: 2%;
-        border: 1px solid #ccc;
-        padding: 3%;
-        color: #555;
+        border: 1px solid #8a8886;
+        border-radius: 4px;
+        padding: 10px;
+        color: #323130;
         font-size: 1em;
     }
 
     form input[type="text"]:focus {
-        box-shadow: 0 0 5px #0072BC;
-        padding: 3%;
-        border: 1px solid #0072BC;
+        box-shadow: 0 0 0 2px #3b8575;
+        border: 1px solid transparent;
+    }
+
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        margin: 15px 0;
+        font-size: 0.95em;
+    }
+
+    .checkbox-container input[type="checkbox"] {
+        margin-right: 10px;
+        width: 18px;
+        height: 18px;
     }
 
     #error {
         padding: 5px;
-        color: red;
+        color: #d13438;
+        font-weight: 500;
+        min-height: 20px;
+    }
+
+    #status {
+        padding: 5px;
+        color: #107c10;
+        font-weight: 500;
+        text-align: center;
+        margin-top: 10px;
+        min-height: 20px;
     }
 
     select:focus,
@@ -91,31 +141,31 @@
 
 <body>
     <div id="container">
+        <div class="header" data-i18n="optionsHeader">Ambassador Link</div>
         <form>
-            <input type="text" id="name" placeholder="Enter a CreatorID" autocomplete="off">
+            <input type="text" id="name" data-i18n-placeholder="placeholderId" autocomplete="off">
             <div id="error"></div>
-            <button id="btnAdd">Add</button>
+            <button id="btnAdd" data-i18n="btnAdd">Add Ambassador ID</button>
 
-            <label for="list">Your CreatorIDs:</label>
+            <label for="list" style="margin-top: 25px;" data-i18n="lblYourIds">Your Ambassador IDs:</label>
             <select id="list" name="list" multiple>
 
             </select>
-            <button id="btnRemove">Remove Selected CreatorID</button>
-            <br>
+            <button id="btnRemove" data-i18n="btnRemove">Remove Selected ID</button>
+            
+            <div style="margin-top: 25px; border-top: 1px solid #edebe9; padding-top: 15px;">
+                <label class="checkbox-container">
+                    <input type="checkbox" id="chkLanguageneutral">
+                    <span data-i18n="chkLangNeutral">Make English URLs language-neutral</span>
+                </label>
 
-            <label>
-                <input type="checkbox" id="chkLanguageneutral">
-                Make English URLs language-neutral
-            </label>
-
-            <label>
-                <input type="checkbox" id="chkLanguageneutralAll">
-                Make language-specific URLs language-neutral
-            </label>
+                <label class="checkbox-container">
+                    <input type="checkbox" id="chkLanguageneutralAll">
+                    <span data-i18n="chkLangNeutralAll">Make language-specific URLs language-neutral</span>
+                </label>
+            </div>
 
             <div id="status"></div>
-
-
         </form>
     </div>
 

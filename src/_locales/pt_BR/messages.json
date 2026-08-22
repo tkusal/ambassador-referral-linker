@@ -1,0 +1,44 @@
+{
+  "extName": {
+    "message": "Ambassador Referral Linker"
+  },
+  "extDescription": {
+    "message": "Uma extensão de navegador independente para Microsoft Learn Student Ambassadors."
+  },
+  "optionsTitle": {
+    "message": "Opções do Ambassador Link"
+  },
+  "optionsHeader": {
+    "message": "Ambassador Link"
+  },
+  "placeholderId": {
+    "message": "Digite um Ambassador ID (ex: 123456)"
+  },
+  "btnAdd": {
+    "message": "Adicionar Ambassador ID"
+  },
+  "lblYourIds": {
+    "message": "Seus Ambassador IDs:"
+  },
+  "btnRemove": {
+    "message": "Remover ID Selecionado"
+  },
+  "chkLangNeutral": {
+    "message": "Tornar URLs em inglês neutras de idioma"
+  },
+  "chkLangNeutralAll": {
+    "message": "Tornar URLs específicas de idioma neutras"
+  },
+  "msgIdExists": {
+    "message": "Ambassador ID já existe"
+  },
+  "msgOptionsSaved": {
+    "message": "Opções salvas."
+  },
+  "ctxCopyLink": {
+    "message": "Copiar link com Ambassador ID"
+  },
+  "ctxCopyPage": {
+    "message": "Copiar URL da página com Ambassador ID"
+  }
+}

@@ -1,5 +1,5 @@
 const QUERY_KEY = "WT.mc_id";
-const extensionPrefix = "-skch"; // skch stands for skilling champion
+const extensionPrefix = "-msa"; // msa stands for Microsoft Student Ambassador
 const parentIdPagePostfix = extensionPrefix + "-page";
 const parentIdLinkPostfix = extensionPrefix + "-link";
 const regex = /\/en-us/i; //look for URLs that force English language
@@ -8,35 +8,23 @@ const regexIdPostfix = new RegExp(
   "i"
 );
 const suitableSites = [
-  "https://azure.microsoft.com/*",
-  "https://blog.fabric.microsoft.com/*",
-  "https://blogs.msdn.microsoft.com/*",
-  "https://blogs.technet.microsoft.com/*",
-  "https://channel9.msdn.com/*",
-  "https://cloudblogs.microsoft.com/*",
-  "https://code.visualstudio.com/*",
-  "https://community.fabric.microsoft.com/*",
-  "https://csc.docs.microsoft.com/*",
-  "https://devblogs.microsoft.com/*",
-  "https://developer.microsoft.com/*",
-  "https://docs.azure.cn/*",
-  "https://docs.microsoft.com/*",
-  "https://dotnet.microsoft.com/*",
-  "https://events.microsoft.com/*",
-  "https://foundershub.startups.microsoft.com/*",
-  "https://gallery.technet.microsoft.com/*",
-  "https://imaginecup.microsoft.com/*",
-  "https://learn.microsoft.com/*",
-  "https://microsoft.com/handsonlabs/*",
-  "https://msdn.microsoft.com/*",
-  "https://mvp.microsoft.com/*",
-  "https://powerbi.microsoft.com/*",
-  "https://reactor.microsoft.com/*",
-  "https://social.msdn.microsoft.com/*",
-  "https://social.technet.microsoft.com/*",
-  "https://techcommunity.microsoft.com/*",
-  "https://technet.microsoft.com/*",
-  "https://www.azure.cn/*",
+  "*://azure.microsoft.com/*",
+  "*://blog.fabric.microsoft.com/*",
+  "*://code.visualstudio.com/*",
+  "*://community.fabric.microsoft.com/*",
+  "*://community.powerplatform.com/*",
+  "*://copilot.microsoft.com/*",
+  "*://devblogs.microsoft.com/*",
+  "*://developer.microsoft.com/*",
+  "*://dotnet.microsoft.com/*",
+  "*://events.microsoft.com/*",
+  "*://imaginecup.microsoft.com/*",
+  "*://learn.microsoft.com/*",
+  "*://microsoft.com/*",
+  "*://powerbi.microsoft.com/*",
+  "*://reactor.microsoft.com/*",
+  "*://studentambassadors.microsoft.com/*",
+  "*://techcommunity.microsoft.com/*"
 ];
 const regexAll = /(?<=\.com)\/[a-zA-Z]{2}(-[a-zA-Z]{4}){0,1}-[a-zA-Z]{2}/i; //look for URLs that force any language - assumes the format is xxxxxxx.com/xx-yy or xxxxxxx.com/xx-zzzz-yy
 var makeNeutralURL = false; // toggle for removal of language code from English URLs
@@ -47,10 +35,10 @@ chrome.contextMenus.onClicked.addListener(async function (itemData) {
     itemData.linkUrl !== undefined ? itemData.linkUrl : itemData.pageUrl;
   var url = new URL(linkUrl);
 
-  // remove the postfix to get the actual creator Id e. g. AZ-MVP-5003203-skch-page => AZ-MVP-5003203
-  var creatorId = itemData.menuItemId.replace(regexIdPostfix, "");
+  // remove the postfix to get the actual ambassador Id
+  var ambassadorId = itemData.menuItemId.replace(regexIdPostfix, "");
 
-  url.searchParams.set(QUERY_KEY, creatorId);
+  url.searchParams.set(QUERY_KEY, ambassadorId);
   if (makeNeutralURL) {
     url.href = url.href.replace(regex, "");
   } //remove language code from URL
@@ -81,47 +69,47 @@ async function setClipboardUsingOffscreenDocument(text) {
   });
 }
 
-function createContextMenues(creatorIds) {
+function createContextMenues(ambassadorIds) {
   chrome.contextMenus.removeAll();
-  if (creatorIds.length < 1) {
+  if (ambassadorIds.length < 1) {
     return;
   }
 
   let linkParentId =
-    creatorIds.length > 1
+    ambassadorIds.length > 1
       ? "root" + parentIdLinkPostfix
-      : creatorIds[0] + parentIdLinkPostfix;
+      : ambassadorIds[0] + parentIdLinkPostfix;
 
   let pageParentId =
-    creatorIds.length > 1
+    ambassadorIds.length > 1
       ? "root" + parentIdPagePostfix
-      : creatorIds[0] + parentIdPagePostfix;
+      : ambassadorIds[0] + parentIdPagePostfix;
 
   chrome.contextMenus.create({
-    title: "Copy link address with CreatorID",
+    title: chrome.i18n.getMessage("ctxCopyLink"),
     id: linkParentId,
     targetUrlPatterns: suitableSites,
     contexts: ["link"],
   });
 
   chrome.contextMenus.create({
-    title: "Copy page url with CreatorID",
+    title: chrome.i18n.getMessage("ctxCopyPage"),
     id: pageParentId,
     documentUrlPatterns: suitableSites,
     contexts: ["page"],
   });
 
-  if (creatorIds.length > 1) {
-    creatorIds.forEach(function (creatorId) {
+  if (ambassadorIds.length > 1) {
+    ambassadorIds.forEach(function (ambassadorId) {
       chrome.contextMenus.create({
-        title: creatorId,
-        id: creatorId + parentIdLinkPostfix,
+        title: ambassadorId,
+        id: ambassadorId + parentIdLinkPostfix,
         parentId: linkParentId,
         contexts: ["link"],
       });
       chrome.contextMenus.create({
-        title: creatorId,
-        id: creatorId + parentIdPagePostfix,
+        title: ambassadorId,
+        id: ambassadorId + parentIdPagePostfix,
         parentId: pageParentId,
         contexts: ["page"],
       });
@@ -160,7 +148,7 @@ function restoreLangOptions() {
 }
 
 chrome.runtime.onMessage.addListener(function (request) {
-  if (request === "updateSkillingChampionContextMenues") {
+  if (request === "updateMSAContextMenues") {
     updateContextMenues();
     restoreLangOptions();
   }
