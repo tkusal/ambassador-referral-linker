@@ -7,6 +7,14 @@
   "background": {
     "service_worker": "main.js"
   },
+  "action": {
+    "default_popup": "options.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
   "options_ui": {
     "page": "options.html",
     "open_in_tab": false
