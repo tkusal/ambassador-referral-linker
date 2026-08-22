@@ -1,4 +1,4 @@
-const QUERY_KEY = "WT.mc_id";
+
 const extensionPrefix = "-msa"; // msa stands for Microsoft Student Ambassador
 const parentIdPagePostfix = extensionPrefix + "-page";
 const parentIdLinkPostfix = extensionPrefix + "-link";
@@ -33,10 +33,14 @@ chrome.contextMenus.onClicked.addListener(async function (itemData) {
     itemData.linkUrl !== undefined ? itemData.linkUrl : itemData.pageUrl;
   var url = new URL(linkUrl);
 
-  // remove the postfix to get the actual ambassador Id
+  // check if this specific ambassador ID is already appended to prevent duplicates
   var ambassadorId = itemData.menuItemId.replace(regexIdPostfix, "");
-
-  url.searchParams.set(QUERY_KEY, ambassadorId);
+  let existingParams = url.searchParams.getAll("wt.mc_id");
+  let alreadyExists = existingParams.some(p => p.toLowerCase() === ambassadorId.toLowerCase());
+  
+  if (!alreadyExists) {
+    url.searchParams.append("wt.mc_id", ambassadorId);
+  }
   
   if (makeNeutralURL) {
     // Matches /en-us, /pt-br, /es-es, etc at the start of the path
