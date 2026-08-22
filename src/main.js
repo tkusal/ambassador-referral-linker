@@ -2,7 +2,6 @@ const QUERY_KEY = "WT.mc_id";
 const extensionPrefix = "-msa"; // msa stands for Microsoft Student Ambassador
 const parentIdPagePostfix = extensionPrefix + "-page";
 const parentIdLinkPostfix = extensionPrefix + "-link";
-const regex = /\/en-us/i; //look for URLs that force English language
 const regexIdPostfix = new RegExp(
   parentIdPagePostfix + "$|" + parentIdLinkPostfix + "$",
   "i"
@@ -26,9 +25,8 @@ const suitableSites = [
   "*://studentambassadors.microsoft.com/*",
   "*://techcommunity.microsoft.com/*"
 ];
-const regexAll = /(?<=\.com)\/[a-zA-Z]{2}(-[a-zA-Z]{4}){0,1}-[a-zA-Z]{2}/i; //look for URLs that force any language - assumes the format is xxxxxxx.com/xx-yy or xxxxxxx.com/xx-zzzz-yy
-var makeNeutralURL = false; // toggle for removal of language code from English URLs
-var makeNeutralURLAll = false; // toggle for removal of language code from language specific URLs in any language
+
+var makeNeutralURL = false; // toggle for removal of language code from URLs
 
 chrome.contextMenus.onClicked.addListener(async function (itemData) {
   var linkUrl =
@@ -39,12 +37,14 @@ chrome.contextMenus.onClicked.addListener(async function (itemData) {
   var ambassadorId = itemData.menuItemId.replace(regexIdPostfix, "");
 
   url.searchParams.set(QUERY_KEY, ambassadorId);
+  
   if (makeNeutralURL) {
-    url.href = url.href.replace(regex, "");
-  } //remove language code from URL
-  if (makeNeutralURLAll) {
-    url.href = url.href.replace(regexAll, "");
-  } //remove language code from URL
+    // Matches /en-us, /pt-br, /es-es, etc at the start of the path
+    url.pathname = url.pathname.replace(/^\/[a-zA-Z]{2}-[a-zA-Z]{2}(-[a-zA-Z]{2})?(?=\/|$)/i, "");
+    if (!url.pathname.startsWith('/')) {
+        url.pathname = '/' + url.pathname;
+    }
+  }
 
   await setClipboardUsingOffscreenDocument(url.href);
 });
@@ -69,21 +69,14 @@ async function setClipboardUsingOffscreenDocument(text) {
   });
 }
 
-function createContextMenues(ambassadorIds) {
+function createContextMenues(ambassadorId) {
   chrome.contextMenus.removeAll();
-  if (ambassadorIds.length < 1) {
+  if (!ambassadorId) {
     return;
   }
 
-  let linkParentId =
-    ambassadorIds.length > 1
-      ? "root" + parentIdLinkPostfix
-      : ambassadorIds[0] + parentIdLinkPostfix;
-
-  let pageParentId =
-    ambassadorIds.length > 1
-      ? "root" + parentIdPagePostfix
-      : ambassadorIds[0] + parentIdPagePostfix;
+  let linkParentId = ambassadorId + parentIdLinkPostfix;
+  let pageParentId = ambassadorId + parentIdPagePostfix;
 
   chrome.contextMenus.create({
     title: chrome.i18n.getMessage("ctxCopyLink"),
@@ -98,33 +91,16 @@ function createContextMenues(ambassadorIds) {
     documentUrlPatterns: suitableSites,
     contexts: ["page"],
   });
-
-  if (ambassadorIds.length > 1) {
-    ambassadorIds.forEach(function (ambassadorId) {
-      chrome.contextMenus.create({
-        title: ambassadorId,
-        id: ambassadorId + parentIdLinkPostfix,
-        parentId: linkParentId,
-        contexts: ["link"],
-      });
-      chrome.contextMenus.create({
-        title: ambassadorId,
-        id: ambassadorId + parentIdPagePostfix,
-        parentId: pageParentId,
-        contexts: ["page"],
-      });
-    });
-  }
 }
 
 function updateContextMenues() {
   chrome.storage.sync.get(
     {
-      list: [],
+      ambassadorId: "",
     },
     function (items) {
-      if (items) {
-        createContextMenues(items.list);
+      if (items && items.ambassadorId) {
+        createContextMenues(items.ambassadorId);
       } else {
         chrome.contextMenus.removeAll();
       }
@@ -132,17 +108,14 @@ function updateContextMenues() {
   );
 }
 
-// Load  Language options from  chrome.storage
+// Load Language options from chrome.storage
 function restoreLangOptions() {
-  // Use default value makeNeutralURL = false.
   chrome.storage.sync.get(
     {
-      makeNeutralURL: false,
-      makeNeutralURLAll: false,
+      makeNeutralURL: false
     },
     function (items) {
       makeNeutralURL = items.makeNeutralURL;
-      makeNeutralURLAll = items.makeNeutralURLAll;
     }
   );
 }

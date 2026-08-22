@@ -12,10 +12,10 @@
     "message": "Ambassador Link"
   },
   "placeholderId": {
-    "message": "Enter an Ambassador ID (e.g. 123456)"
+    "message": "Enter your Ambassador ID (e.g. studentamb_123456)"
   },
-  "btnAdd": {
-    "message": "Add Ambassador ID"
+  "btnSave": {
+    "message": "Save Ambassador ID"
   },
   "lblYourIds": {
     "message": "Your Ambassador IDs:"
@@ -24,10 +24,7 @@
     "message": "Remove Selected ID"
   },
   "chkLangNeutral": {
-    "message": "Make English URLs language-neutral"
-  },
-  "chkLangNeutralAll": {
-    "message": "Make language-specific URLs language-neutral"
+    "message": "Make URLs language-neutral (remove /en-us, /pt-br, etc)"
   },
   "msgIdExists": {
     "message": "Ambassador ID already exists"

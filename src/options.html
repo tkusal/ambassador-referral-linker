@@ -145,25 +145,15 @@
         <form>
             <input type="text" id="name" data-i18n-placeholder="placeholderId" autocomplete="off">
             <div id="error"></div>
-            <button id="btnAdd" data-i18n="btnAdd">Add Ambassador ID</button>
-
-            <label for="list" style="margin-top: 25px;" data-i18n="lblYourIds">Your Ambassador IDs:</label>
-            <select id="list" name="list" multiple>
-
-            </select>
-            <button id="btnRemove" data-i18n="btnRemove">Remove Selected ID</button>
             
-            <div style="margin-top: 25px; border-top: 1px solid #edebe9; padding-top: 15px;">
+            <div style="margin-top: 15px; border-top: 1px solid #edebe9; padding-top: 15px;">
                 <label class="checkbox-container">
-                    <input type="checkbox" id="chkLanguageneutral">
-                    <span data-i18n="chkLangNeutral">Make English URLs language-neutral</span>
-                </label>
-
-                <label class="checkbox-container">
-                    <input type="checkbox" id="chkLanguageneutralAll">
-                    <span data-i18n="chkLangNeutralAll">Make language-specific URLs language-neutral</span>
+                    <input type="checkbox" id="chkLangNeutral">
+                    <span data-i18n="chkLangNeutral">Make URLs language-neutral (remove /en-us, /pt-br, etc)</span>
                 </label>
             </div>
+
+            <button id="btnSave" data-i18n="btnSave" style="margin-top: 15px;">Save Ambassador ID</button>
 
             <div id="status"></div>
         </form>
