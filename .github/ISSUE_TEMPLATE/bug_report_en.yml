@@ -38,8 +38,8 @@ body:
       label: Action
       description: What were you trying to do when the problem occurred?
       options:
-        - Copy page URL with Ambassador ID
-        - Copy link address with Ambassador ID
+        - Copy page URL with Contributor ID
+        - Copy link address with Contributor ID
         - Configure or save the Contributor ID
         - Enable or disable language-neutral URLs
         - Other

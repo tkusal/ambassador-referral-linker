@@ -14,36 +14,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
-      - name: Set git tag output
-        id: vars
-        run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+      - name: Set up Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Validate release version
         run: |
           TAG="${GITHUB_REF#refs/tags/}"
           VERSION=${TAG#v}
-          if ! [[ "$VERSION" =~ ^[0-9]+(\.[0-9]+){0,3}$ ]]; then
-            echo "Invalid extension version: $VERSION"
+          PKG_VERSION=$(node -p "require('./package.json').version")
+          if [ "$VERSION" != "$PKG_VERSION" ]; then
+            echo "Error: Tag version ($VERSION) does not match package.json version ($PKG_VERSION)"
             exit 1
           fi
 
-      - name: Patch manifest (add tag)
-        run: |
-          TAG="${{ steps.vars.outputs.tag }}"
-          VERSION=${TAG#v}
-          jq --arg ver "$VERSION" '.version = $ver' src/manifest.json > temp.json && mv temp.json src/manifest.json
+      - name: Build project
+        run: npm run build
 
-      - name: Build project (ZIP)
+      - name: Package extensions
         run: |
-          cd src
-          zip -r ../ambassador-referral-linker.zip .
+          mkdir -p artifacts
+          for browser in chrome edge firefox opera safari; do
+            if [ -d "dist/$browser" ]; then
+              cd dist/$browser
+              zip -r ../../artifacts/ambassador-referral-linker-$browser.zip .
+              cd ../..
+            fi
+          done
 
       - name: Create Release and Upload Asset
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
-          files: ambassador-referral-linker.zip
+          files: artifacts/*.zip
           draft: false
           prerelease: false
         env:

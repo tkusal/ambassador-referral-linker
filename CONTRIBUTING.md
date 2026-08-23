@@ -69,14 +69,14 @@ npm test
 1. Open `chrome://extensions`.
 2. Enable **Developer mode**.
 3. Click **Load unpacked**.
-4. Select the `src` directory.
+4. Select the `dist/chrome` (or `dist/edge`) directory.
 
 ### Microsoft Edge
 
 1. Open `edge://extensions`.
 2. Enable **Developer mode**.
 3. Click **Load unpacked**.
-4. Select the `src` directory.
+4. Select the `dist/chrome` (or `dist/edge`) directory.
 
 After making changes to the extension, reload it from the browser's extensions page before testing the updated behavior.
 
@@ -351,14 +351,14 @@ npm test
 1. Abra `chrome://extensions`.
 2. Ative o **Modo do desenvolvedor**.
 3. Clique em **Carregar sem compactação**.
-4. Selecione o diretório `src`.
+4. Selecione o diretório `dist/chrome` (ou `dist/edge`).
 
 ### Microsoft Edge
 
 1. Abra `edge://extensions`.
 2. Ative o **Modo de desenvolvedor**.
 3. Clique em **Carregar descompactado**.
-4. Selecione o diretório `src`.
+4. Selecione o diretório `dist/chrome` (ou `dist/edge`).
 
 Após realizar alterações na extensão, recarregue-a pela página de extensões do navegador antes de testar o comportamento atualizado.
 

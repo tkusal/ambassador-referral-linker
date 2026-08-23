@@ -52,8 +52,12 @@ _(O link direto para a Chrome Web Store será adicionado aqui após a publicaç�
 
 1. Baixe este repositório como um arquivo ZIP (ou faça um clone) e extraia-o.
 2. No Chrome: Acesse `chrome://extensions/`. No Edge: Acesse `edge://extensions/`.
-3. Ative o **Modo do desenvolvedor** (Developer mode).
-4. Clique em **Carregar sem compactação** (Load unpacked) e selecione a pasta `src` localizada dentro do diretório extraído.
+3. Abra o terminal na pasta extraída e execute:
+   ```bash
+   npm ci
+   npm run build
+   ```
+4. Clique em **Carregar sem compactação** (Load unpacked) e selecione a pasta `dist/chrome` (ou `dist/edge`).
 
 ## Configuração & Como Usar
 
@@ -80,7 +84,6 @@ A extensão atualmente suporta os seguintes sites da Microsoft:
 - events.microsoft.com
 - imaginecup.microsoft.com
 - learn.microsoft.com
-- learn.microsoft.com/copilot
 - microsoft.com/insidetrack
 - microsoft.com/microsoft-365-copilot
 - microsoft.com/microsoft-cloud/blog

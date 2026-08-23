@@ -38,8 +38,8 @@ body:
       label: Ação
       description: O que você estava tentando fazer quando o problema ocorreu?
       options:
-        - Copiar a URL da página com o Ambassador ID
-        - Copiar o endereço de um link com o Ambassador ID
+        - Copiar a URL da página com o Contributor ID
+        - Copiar o endereço de um link com o Contributor ID
         - Configurar ou salvar o Contributor ID
         - Ativar ou desativar URLs neutras de idioma
         - Outro

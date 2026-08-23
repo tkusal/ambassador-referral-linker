@@ -109,6 +109,18 @@ test("createReferralUrl - language-neutral: does NOT strip non-locale path /web-
   );
 });
 
+test("createReferralUrl - language-neutral: does NOT strip non-locale path /ai-ml/", () => {
+  const result = createReferralUrl(
+    "https://azure.microsoft.com/ai-ml/azure",
+    "studentamb_123456",
+    true
+  );
+  assert.strictEqual(
+    result,
+    "https://azure.microsoft.com/ai-ml/azure?wt.mc_id=studentamb_123456"
+  );
+});
+
 test("createReferralUrl - language-neutral: does NOT strip non-locale path /how-to/", () => {
   const result = createReferralUrl(
     "https://learn.microsoft.com/how-to/use",

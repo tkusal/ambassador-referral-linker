@@ -52,8 +52,12 @@ _(Chrome Web Store link will be added here once published.)_
 
 1. Download this repository as a ZIP file (or clone it) and extract it.
 2. For Chrome: Navigate to `chrome://extensions/`. For Edge: Navigate to `edge://extensions/`.
-3. Enable **Developer mode**.
-4. Click **Load unpacked** and select the `src` folder inside the extracted directory.
+3. Open your terminal in the extracted folder and run:
+   ```bash
+   npm ci
+   npm run build
+   ```
+4. Click **Load unpacked** and select the `dist/chrome` (or `dist/edge`) folder.
 
 ## Configuration & Usage
 
@@ -80,7 +84,6 @@ The extension currently supports the following Microsoft sites:
 - events.microsoft.com
 - imaginecup.microsoft.com
 - learn.microsoft.com
-- learn.microsoft.com/copilot
 - microsoft.com/insidetrack
 - microsoft.com/microsoft-365-copilot
 - microsoft.com/microsoft-cloud/blog

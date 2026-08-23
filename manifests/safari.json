@@ -5,6 +5,7 @@
   "description": "__MSG_extDescription__",
   "default_locale": "en",
   "background": {
+    "scripts": ["main.js"],
     "service_worker": "main.js",
     "type": "module"
   },

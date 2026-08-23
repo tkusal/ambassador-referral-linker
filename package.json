@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node --test",
     "build": "node scripts/build.js",
-    "format": "prettier --write \"{src,scripts,manifests}/**/*.{js,html,json}\" \"tests/**/*.js\" \"*.{md,json}\""
+    "format": "prettier --write \"{src,scripts,manifests}/**/*.{js,html,json}\" \"tests/**/*.js\" \"*.{md,json}\"",
+    "typecheck": "tsc --noEmit --allowJs --checkJs src/**/*.js"
   },
   "keywords": [
     "microsoft",
@@ -17,6 +18,8 @@
   "author": "Thiago Kusal",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "^3.9.6"
+    "@types/chrome": "^0.2.7",
+    "prettier": "^3.9.6",
+    "typescript": "^7.0.2"
   }
 }
