@@ -79,12 +79,12 @@ function restoreOptions() {
       makeNeutralURL: false,
     },
     function (items) {
-      const savedId = items.contributorId || items.ambassadorId || "";
+      const savedId = String(items.contributorId || items.ambassadorId || "");
       namefield.value = savedId;
       if (savedId) {
         savedIdDisplay.textContent = chrome.i18n.getMessage("msgSavedIdPrefix") + savedId;
       }
-      chkLangNeutral.checked = items.makeNeutralURL;
+      chkLangNeutral.checked = Boolean(items.makeNeutralURL);
     }
   );
 }
