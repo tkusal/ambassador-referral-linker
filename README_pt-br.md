@@ -39,7 +39,7 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 | Chrome    | Em análise                                                                                       |
 | Edge      | [Disponível](https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh) |
 | Firefox   | Planejado                                                                                        |
-| Opera     | Planejado                                                                                        |
+| Opera     | Em análise                                                                                       |
 | Safari    | Planejado                                                                                        |
 
 ## Instalação
@@ -156,7 +156,7 @@ npm test
 - [x] Reorganizar repositório para suportar múltiplos navegadores
 - [ ] Tornar a extensão compatível com o Firefox (adaptar a API offscreen e background scripts)
 - [ ] Publicar nos Complementos do Firefox
-- [ ] Publicar nos Complementos do Opera
+- [ ] Publicar nos Complementos do Opera (Em análise)
 - [ ] Publicar no Safari
 
 ## Créditos
