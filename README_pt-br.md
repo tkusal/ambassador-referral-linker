@@ -44,7 +44,7 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 
 ## Instalação
 
-[![Obtenha no Microsoft Edge Add-ons](assets/edge-badge.png)](https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh)
+<a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Obtenha no Microsoft Edge Add-ons"></a>
 
 _(O link direto para a Chrome Web Store será adicionado aqui após a publicação.)_
 
