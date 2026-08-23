@@ -12,7 +12,7 @@ btnSave.onclick = (e) => {
   const contributorId = trimContributorId(namefield.value);
 
   if (!contributorId) {
-    error.textContent = "ID não pode ser vazio / ID cannot be empty.";
+    error.textContent = chrome.i18n.getMessage("msgErrorEmptyId");
     setTimeout(function () {
       error.textContent = "";
     }, 2000);
@@ -21,8 +21,7 @@ btnSave.onclick = (e) => {
 
   const idRegex = /^[a-zA-Z0-9_-]+$/;
   if (!idRegex.test(contributorId)) {
-    error.textContent =
-      "ID inválido (apenas letras, números, _ e -) / Invalid ID (letters, numbers, _ and - only).";
+    error.textContent = chrome.i18n.getMessage("msgErrorInvalidId");
     setTimeout(function () {
       error.textContent = "";
     }, 3000);
@@ -31,7 +30,7 @@ btnSave.onclick = (e) => {
 
   saveOptions(contributorId, chkLangNeutral.checked);
 
-  savedIdDisplay.textContent = "ID Salvo / Saved ID: " + contributorId;
+  savedIdDisplay.textContent = chrome.i18n.getMessage("msgSavedIdPrefix") + contributorId;
 
   const status = /** @type {HTMLElement} */ (document.getElementById("status"));
   if (status) {
@@ -65,7 +64,7 @@ function restoreOptions() {
       const savedId = items.contributorId || items.ambassadorId || "";
       namefield.value = savedId;
       if (savedId) {
-        savedIdDisplay.textContent = "ID Salvo / Saved ID: " + savedId;
+        savedIdDisplay.textContent = chrome.i18n.getMessage("msgSavedIdPrefix") + savedId;
       }
       chkLangNeutral.checked = items.makeNeutralURL;
     }
@@ -73,6 +72,7 @@ function restoreOptions() {
 }
 
 function localizeUI() {
+  document.documentElement.lang = chrome.i18n.getUILanguage();
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const msgKey = el.getAttribute("data-i18n");
     if (msgKey) {

@@ -65,6 +65,11 @@
       cursor: pointer;
     }
 
+    button:active {
+      transform: scale(0.98);
+      background: #1c423c;
+    }
+
     form input[type="text"] {
       box-sizing: border-box;
       width: 100%;
@@ -113,6 +118,68 @@
       margin-top: 10px;
       min-height: 20px;
     }
+
+    .separator {
+      margin-top: 15px;
+      border-top: 1px solid #edebe9;
+      padding-top: 15px;
+    }
+
+    .btn-primary {
+      margin-top: 15px;
+    }
+
+    .saved-id-display {
+      margin-top: 15px;
+      text-align: center;
+      font-weight: bold;
+      color: #3b8575;
+    }
+
+    .footer-link {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    .footer-link a {
+      color: #0078d4;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      body {
+        background-color: #201f1e;
+      }
+      #container {
+        background-color: #323130;
+      }
+      label,
+      .checkbox-container {
+        color: #f3f2f1;
+      }
+      form input[type="text"] {
+        background: #3b3a39;
+        color: #f3f2f1;
+        border-color: #605e5c;
+      }
+      .saved-id-display {
+        color: #55c49a;
+      }
+      #status {
+        color: #61bb61;
+      }
+      #error {
+        color: #ff8b8e;
+      }
+      .footer-link a {
+        color: #4eb7f5;
+      }
+      .separator {
+        border-top-color: #484644;
+      }
+    }
   </style>
 
   <body>
@@ -123,7 +190,7 @@
         <input type="text" id="name" data-i18n-placeholder="placeholderId" autocomplete="off" />
         <div id="error"></div>
 
-        <div style="margin-top: 15px; border-top: 1px solid #edebe9; padding-top: 15px">
+        <div class="separator">
           <label class="checkbox-container">
             <input type="checkbox" id="chkLangNeutral" />
             <span data-i18n="chkLangNeutral"
@@ -132,22 +199,16 @@
           </label>
         </div>
 
-        <button id="btnSave" data-i18n="btnSave" style="margin-top: 15px">
-          Save Contributor ID
-        </button>
-        <div
-          id="savedIdDisplay"
-          style="margin-top: 15px; text-align: center; font-weight: bold; color: #3b8575"
-        ></div>
+        <button id="btnSave" data-i18n="btnSave" class="btn-primary">Save Contributor ID</button>
+        <div id="savedIdDisplay" class="saved-id-display"></div>
 
         <div id="status" aria-live="polite"></div>
 
-        <div style="margin-top: 25px; text-align: center; font-size: 0.9em">
+        <div class="footer-link">
           <a
             href="https://github.com/tkusal/ambassador-referral-linker/blob/main/USAGE.md"
             target="_blank"
             data-i18n="btnHelp"
-            style="color: #0078d4; text-decoration: none; font-weight: 600"
             >Help / How to use</a
           >
         </div>

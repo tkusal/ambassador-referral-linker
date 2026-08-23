@@ -34,5 +34,14 @@
   },
   "ctxCopyPage": {
     "message": "Copiar URL da página com Contributor ID"
+  },
+  "msgErrorEmptyId": {
+    "message": "O ID não pode ser vazio."
+  },
+  "msgErrorInvalidId": {
+    "message": "ID inválido (apenas letras, números, _ e -)."
+  },
+  "msgSavedIdPrefix": {
+    "message": "ID Salvo: "
   }
 }
