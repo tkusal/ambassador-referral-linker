@@ -1,5 +1,4 @@
-```yaml
-name: Sugestão de Funcionalidade - Português (Brasil)
+﻿name: Sugestão de Funcionalidade - Português (Brasil)
 description: Sugira uma nova funcionalidade ou melhoria para o Ambassador Referral Linker
 title: "[Feature]: "
 labels:
@@ -111,4 +110,3 @@ body:
           required: true
         - label: Não incluí informações sensíveis nem meu Contributor ID real.
           required: true
-```

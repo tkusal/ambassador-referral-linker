@@ -20,6 +20,15 @@ jobs:
         id: vars
         run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
 
+      - name: Validate release version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          VERSION=${TAG#v}
+          if ! [[ "$VERSION" =~ ^[0-9]+(\.[0-9]+){0,3}$ ]]; then
+            echo "Invalid extension version: $VERSION"
+            exit 1
+          fi
+
       - name: Patch manifest (add tag)
         run: |
           TAG="${{ steps.vars.outputs.tag }}"

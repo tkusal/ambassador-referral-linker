@@ -1,5 +1,4 @@
-```yaml
-name: Relatar um Bug - Português (Brasil)
+﻿name: Relatar um Bug - Português (Brasil)
 description: Relate um problema com o Ambassador Referral Linker
 title: "[Bug]: "
 labels:
@@ -138,4 +137,3 @@ body:
           required: true
         - label: Não incluí meu Contributor ID real nem outras informações sensíveis.
           required: true
-```

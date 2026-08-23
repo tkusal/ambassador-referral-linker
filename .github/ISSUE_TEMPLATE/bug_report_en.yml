@@ -1,5 +1,4 @@
-```yaml
-name: Bug Report - English
+﻿name: Bug Report - English
 description: Report a problem with Ambassador Referral Linker
 title: "[Bug]: "
 labels:
@@ -138,4 +137,3 @@ body:
           required: true
         - label: I have not included my real Contributor ID or other sensitive information.
           required: true
-```

@@ -1,5 +1,4 @@
-```yaml
-name: Feature Request - English
+﻿name: Feature Request - English
 description: Suggest a new feature or improvement for Ambassador Referral Linker
 title: "[Feature]: "
 labels:
@@ -111,4 +110,3 @@ body:
           required: true
         - label: I have not included sensitive information or my real Contributor ID.
           required: true
-```
