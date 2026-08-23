@@ -2,9 +2,12 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "noEmit": true,
     "checkJs": true,
-    "strict": true
+    "strict": true,
+    "noImplicitAny": false,
+    "types": ["chrome", "node"]
   },
   "include": ["src/**/*", "tests/**/*"]
 }
