@@ -4,7 +4,8 @@
   "description": "Browser extension for Microsoft Learn Student Ambassadors that adds your Contributor ID to Microsoft links.",
   "type": "module",
   "scripts": {
-    "test": "node --test tests/**/*.test.js"
+    "test": "node --test tests/**/*.test.js",
+    "format": "prettier --write \"src/**/*.{js,html,json}\" \"tests/**/*.js\" \"*.{md,json}\""
   },
   "keywords": [
     "microsoft",
@@ -13,5 +14,8 @@
     "contributor"
   ],
   "author": "Thiago Kusal",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^3.9.6"
+  }
 }

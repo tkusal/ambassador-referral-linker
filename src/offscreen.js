@@ -1,3 +1,5 @@
+// @ts-check
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   // ensure the message is related to this extension
   if (request.target !== "offscreen" || request.type !== "copy-to-clipboard") {

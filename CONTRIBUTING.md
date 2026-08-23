@@ -16,15 +16,15 @@ Contributions of all sizes are welcome, whether you are fixing a bug, improving 
 
 You can contribute in many ways:
 
-* Fix bugs
-* Improve URL handling
-* Add or update supported Microsoft domains
-* Improve language-neutral URL handling
-* Add or improve tests
-* Improve documentation
-* Improve translations
-* Report bugs
-* Suggest new features
+- Fix bugs
+- Improve URL handling
+- Add or update supported Microsoft domains
+- Improve language-neutral URL handling
+- Add or improve tests
+- Improve documentation
+- Improve translations
+- Report bugs
+- Suggest new features
 
 ## Before you start
 
@@ -38,10 +38,10 @@ The repository provides issue forms in both English and Brazilian Portuguese. Bl
 
 ### Requirements
 
-* Git
-* Node.js 20
-* npm
-* Google Chrome, Microsoft Edge, or another Chromium-based browser
+- Git
+- Node.js 20
+- npm
+- Google Chrome, Microsoft Edge, or another Chromium-based browser
 
 Fork the repository and clone your fork:
 
@@ -100,11 +100,11 @@ Avoid including unrelated refactoring, formatting changes, or other modification
 
 When changing existing behavior:
 
-* Update or add tests when applicable
-* Test the extension locally
-* Update the documentation if user-facing behavior changes
-* Update localization files when user-facing text changes
-* Preserve compatibility with the currently supported Chromium-based browsers
+- Update or add tests when applicable
+- Test the extension locally
+- Update the documentation if user-facing behavior changes
+- Update localization files when user-facing text changes
+- Preserve compatibility with the currently supported Chromium-based browsers
 
 ## URL handling changes
 
@@ -112,13 +112,13 @@ Changes to URL processing should include tests whenever possible.
 
 Please test at least the relevant cases below:
 
-* URLs without query parameters
-* URLs with existing query parameters
-* URLs that already contain `wt.mc_id`
-* Language-specific Microsoft URLs
-* Language-neutral URLs
-* URLs containing fragments
-* Unsupported domains
+- URLs without query parameters
+- URLs with existing query parameters
+- URLs that already contain `wt.mc_id`
+- Language-specific Microsoft URLs
+- Language-neutral URLs
+- URLs containing fragments
+- Unsupported domains
 
 Avoid modifying unrelated URL components such as fragments, query parameters, or paths unless the change specifically requires it.
 
@@ -139,10 +139,10 @@ User-facing extension strings should use the localization files under `src/_loca
 
 When adding or modifying user-facing text:
 
-* Update the English locale
-* Update the Portuguese locale when the same string is available in both languages
-* Keep message keys consistent across locales
-* Avoid hardcoding user-facing strings directly in JavaScript or HTML when localization can be used
+- Update the English locale
+- Update the Portuguese locale when the same string is available in both languages
+- Keep message keys consistent across locales
+- Avoid hardcoding user-facing strings directly in JavaScript or HTML when localization can be used
 
 Contributions that add support for additional languages are also welcome.
 
@@ -152,8 +152,8 @@ Bug reports are available in both English and Brazilian Portuguese.
 
 When opening a new issue, select the appropriate form:
 
-* **Bug Report - English**
-* **Relatar um Bug - Português (Brasil)**
+- **Bug Report - English**
+- **Relatar um Bug - Português (Brasil)**
 
 Before submitting a bug report:
 
@@ -178,16 +178,16 @@ Screenshots or short recordings may also be helpful, but make sure they do not c
 
 Feature requests are also available in both languages:
 
-* **Feature Request - English**
-* **Sugestão de Funcionalidade - Português (Brasil)**
+- **Feature Request - English**
+- **Sugestão de Funcionalidade - Português (Brasil)**
 
 When suggesting a feature, describe:
 
-* What problem or use case motivated the request
-* What the feature would do
-* Why it would be useful
-* How you expect it to work
-* Any alternatives or related solutions you have considered
+- What problem or use case motivated the request
+- What the feature would do
+- Why it would be useful
+- How you expect it to work
+- Any alternatives or related solutions you have considered
 
 For larger features, discussing the proposal before implementing it can help avoid duplicated or unnecessary work.
 
@@ -243,17 +243,17 @@ Whenever possible, keep pull requests small and focused. This makes them easier 
 
 Before submitting your pull request, make sure that:
 
-* [ ] The change has a clear and focused purpose.
-* [ ] You have reviewed your own changes.
-* [ ] Existing tests pass with `npm test`.
-* [ ] New or modified behavior includes tests when applicable.
-* [ ] The extension was tested locally in a Chromium-based browser when applicable.
-* [ ] Documentation was updated if user-facing behavior changed.
-* [ ] Localization files were updated if user-facing text changed.
-* [ ] The supported sites documentation was updated if a Microsoft domain was added or modified.
-* [ ] No sensitive information or personal Contributor IDs are included.
-* [ ] No unrelated changes are included in the pull request.
-* [ ] The pull request clearly explains what changed and why.
+- [ ] The change has a clear and focused purpose.
+- [ ] You have reviewed your own changes.
+- [ ] Existing tests pass with `npm test`.
+- [ ] New or modified behavior includes tests when applicable.
+- [ ] The extension was tested locally in a Chromium-based browser when applicable.
+- [ ] Documentation was updated if user-facing behavior changed.
+- [ ] Localization files were updated if user-facing text changed.
+- [ ] The supported sites documentation was updated if a Microsoft domain was added or modified.
+- [ ] No sensitive information or personal Contributor IDs are included.
+- [ ] No unrelated changes are included in the pull request.
+- [ ] The pull request clearly explains what changed and why.
 
 ## Commit message guidelines
 
@@ -298,15 +298,15 @@ Contribuições de todos os tamanhos são bem-vindas, seja corrigindo um bug, me
 
 Você pode contribuir de diversas maneiras:
 
-* Corrigir bugs
-* Melhorar o processamento de URLs
-* Adicionar ou atualizar domínios Microsoft suportados
-* Melhorar o tratamento de URLs neutras de idioma
-* Adicionar ou melhorar testes
-* Melhorar a documentação
-* Melhorar traduções
-* Reportar bugs
-* Sugerir novas funcionalidades
+- Corrigir bugs
+- Melhorar o processamento de URLs
+- Adicionar ou atualizar domínios Microsoft suportados
+- Melhorar o tratamento de URLs neutras de idioma
+- Adicionar ou melhorar testes
+- Melhorar a documentação
+- Melhorar traduções
+- Reportar bugs
+- Sugerir novas funcionalidades
 
 ## Antes de começar
 
@@ -320,10 +320,10 @@ O repositório oferece formulários de issues em inglês e português do Brasil.
 
 ### Requisitos
 
-* Git
-* Node.js 20
-* npm
-* Google Chrome, Microsoft Edge ou outro navegador baseado em Chromium
+- Git
+- Node.js 20
+- npm
+- Google Chrome, Microsoft Edge ou outro navegador baseado em Chromium
 
 Faça um fork do repositório e clone seu fork:
 
@@ -382,11 +382,11 @@ Evite incluir refatorações, mudanças de formatação ou outras modificações
 
 Ao alterar comportamentos existentes:
 
-* Atualize ou adicione testes quando aplicável
-* Teste a extensão localmente
-* Atualize a documentação caso o comportamento visível ao usuário seja alterado
-* Atualize os arquivos de localização quando textos visíveis ao usuário forem modificados
-* Preserve a compatibilidade com os navegadores baseados em Chromium atualmente suportados
+- Atualize ou adicione testes quando aplicável
+- Teste a extensão localmente
+- Atualize a documentação caso o comportamento visível ao usuário seja alterado
+- Atualize os arquivos de localização quando textos visíveis ao usuário forem modificados
+- Preserve a compatibilidade com os navegadores baseados em Chromium atualmente suportados
 
 ## Alterações no processamento de URLs
 
@@ -394,13 +394,13 @@ Alterações no processamento de URLs devem incluir testes sempre que possível.
 
 Teste pelo menos os casos relevantes abaixo:
 
-* URLs sem parâmetros de consulta
-* URLs com parâmetros de consulta existentes
-* URLs que já contenham `wt.mc_id`
-* URLs da Microsoft específicas de idioma
-* URLs neutras de idioma
-* URLs contendo fragmentos
-* Domínios não suportados
+- URLs sem parâmetros de consulta
+- URLs com parâmetros de consulta existentes
+- URLs que já contenham `wt.mc_id`
+- URLs da Microsoft específicas de idioma
+- URLs neutras de idioma
+- URLs contendo fragmentos
+- Domínios não suportados
 
 Evite modificar componentes não relacionados da URL, como fragmentos, parâmetros de consulta ou caminhos, a menos que a alteração exija especificamente esse comportamento.
 
@@ -421,10 +421,10 @@ As strings visíveis ao usuário devem utilizar os arquivos de localização em 
 
 Ao adicionar ou modificar textos visíveis ao usuário:
 
-* Atualize a localização em inglês
-* Atualize a localização em português quando a mesma string estiver disponível nos dois idiomas
-* Mantenha as chaves de mensagens consistentes entre as localizações
-* Evite inserir strings visíveis ao usuário diretamente em JavaScript ou HTML quando o sistema de localização puder ser utilizado
+- Atualize a localização em inglês
+- Atualize a localização em português quando a mesma string estiver disponível nos dois idiomas
+- Mantenha as chaves de mensagens consistentes entre as localizações
+- Evite inserir strings visíveis ao usuário diretamente em JavaScript ou HTML quando o sistema de localização puder ser utilizado
 
 Contribuições que adicionem suporte a outros idiomas também são bem-vindas.
 
@@ -434,8 +434,8 @@ Os formulários para relato de bugs estão disponíveis em inglês e português 
 
 Ao abrir uma nova issue, escolha o formulário apropriado:
 
-* **Bug Report - English**
-* **Relatar um Bug - Português (Brasil)**
+- **Bug Report - English**
+- **Relatar um Bug - Português (Brasil)**
 
 Antes de enviar um relato de bug:
 
@@ -460,16 +460,16 @@ Capturas de tela ou pequenas gravações também podem ser úteis, mas certifiqu
 
 Os formulários para sugestões de funcionalidades também estão disponíveis nos dois idiomas:
 
-* **Feature Request - English**
-* **Sugestão de Funcionalidade - Português (Brasil)**
+- **Feature Request - English**
+- **Sugestão de Funcionalidade - Português (Brasil)**
 
 Ao sugerir uma funcionalidade, descreva:
 
-* Qual problema ou caso de uso motivou a sugestão
-* O que a funcionalidade faria
-* Por que ela seria útil
-* Como você espera que ela funcione
-* Alternativas ou soluções relacionadas que tenha considerado
+- Qual problema ou caso de uso motivou a sugestão
+- O que a funcionalidade faria
+- Por que ela seria útil
+- Como você espera que ela funcione
+- Alternativas ou soluções relacionadas que tenha considerado
 
 Para funcionalidades maiores, discutir a proposta antes da implementação pode ajudar a evitar trabalho duplicado ou desnecessário.
 
@@ -525,17 +525,17 @@ Sempre que possível, mantenha os pull requests pequenos e focados. Isso facilit
 
 Antes de enviar seu pull request, certifique-se de que:
 
-* [ ] A alteração possui um objetivo claro e específico.
-* [ ] Você revisou suas próprias alterações.
-* [ ] Os testes existentes passam com `npm test`.
-* [ ] Comportamentos novos ou modificados incluem testes quando aplicável.
-* [ ] A extensão foi testada localmente em um navegador baseado em Chromium quando aplicável.
-* [ ] A documentação foi atualizada caso o comportamento visível ao usuário tenha sido alterado.
-* [ ] Os arquivos de localização foram atualizados caso textos visíveis ao usuário tenham sido modificados.
-* [ ] A documentação de sites suportados foi atualizada caso um domínio Microsoft tenha sido adicionado ou modificado.
-* [ ] Nenhuma informação sensível ou Contributor ID pessoal foi incluído.
-* [ ] Nenhuma alteração não relacionada foi incluída no pull request.
-* [ ] O pull request explica claramente o que foi alterado e por quê.
+- [ ] A alteração possui um objetivo claro e específico.
+- [ ] Você revisou suas próprias alterações.
+- [ ] Os testes existentes passam com `npm test`.
+- [ ] Comportamentos novos ou modificados incluem testes quando aplicável.
+- [ ] A extensão foi testada localmente em um navegador baseado em Chromium quando aplicável.
+- [ ] A documentação foi atualizada caso o comportamento visível ao usuário tenha sido alterado.
+- [ ] Os arquivos de localização foram atualizados caso textos visíveis ao usuário tenham sido modificados.
+- [ ] A documentação de sites suportados foi atualizada caso um domínio Microsoft tenha sido adicionado ou modificado.
+- [ ] Nenhuma informação sensível ou Contributor ID pessoal foi incluído.
+- [ ] Nenhuma alteração não relacionada foi incluída no pull request.
+- [ ] O pull request explica claramente o que foi alterado e por quê.
 
 ## Diretrizes para mensagens de commit
 

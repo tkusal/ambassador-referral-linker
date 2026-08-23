@@ -20,12 +20,7 @@
     "page": "options.html",
     "open_in_tab": false
   },
-  "permissions": [
-    "contextMenus",
-    "storage",
-    "clipboardWrite",
-    "offscreen"
-  ],
+  "permissions": ["contextMenus", "storage", "clipboardWrite", "offscreen"],
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",

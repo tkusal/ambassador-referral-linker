@@ -18,19 +18,19 @@ We pledge to act and interact in ways that contribute to an open, welcoming, div
 
 Examples of behavior that contributes to a positive environment for our community include:
 
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the overall community
+- Demonstrating empathy and kindness toward other people
+- Being respectful of differing opinions, viewpoints, and experiences
+- Giving and gracefully accepting constructive feedback
+- Accepting responsibility and apologizing to those affected by our mistakes, and learning from the experience
+- Focusing on what is best not just for us as individuals, but for the overall community
 
 Examples of unacceptable behavior include:
 
-* The use of sexualized language or imagery, and sexual attention or advances of any kind
-* Trolling, insulting or derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or email address, without their explicit permission
-* Other conduct which could reasonably be considered inappropriate in a professional setting
+- The use of sexualized language or imagery, and sexual attention or advances of any kind
+- Trolling, insulting or derogatory comments, and personal or political attacks
+- Public or private harassment
+- Publishing others' private information, such as a physical or email address, without their explicit permission
+- Other conduct which could reasonably be considered inappropriate in a professional setting
 
 ### Enforcement Responsibilities
 
@@ -108,19 +108,19 @@ Comprometemo-nos a agir e interagir de maneira a contribuir para uma comunidade 
 
 Exemplos de comportamentos que contribuem para um ambiente positivo em nossa comunidade incluem:
 
-* Demonstrar empatia e gentileza com outras pessoas
-* Respeitar opiniões, pontos de vista e experiências diferentes
-* Dar e receber feedback construtivo de maneira respeitosa
-* Assumir responsabilidade por nossos erros, pedir desculpas às pessoas afetadas e aprender com a experiência
-* Priorizar não apenas nossos interesses individuais, mas também o que é melhor para a comunidade como um todo
+- Demonstrar empatia e gentileza com outras pessoas
+- Respeitar opiniões, pontos de vista e experiências diferentes
+- Dar e receber feedback construtivo de maneira respeitosa
+- Assumir responsabilidade por nossos erros, pedir desculpas às pessoas afetadas e aprender com a experiência
+- Priorizar não apenas nossos interesses individuais, mas também o que é melhor para a comunidade como um todo
 
 Exemplos de comportamentos inaceitáveis incluem:
 
-* Uso de linguagem ou imagens sexualizadas e atenção ou avanços sexuais de qualquer natureza
-* Trolling, comentários insultuosos ou depreciativos e ataques pessoais ou políticos
-* Assédio público ou privado
-* Publicação de informações privadas de outras pessoas, como endereço físico ou de e-mail, sem sua permissão explícita
-* Outras condutas que possam ser razoavelmente consideradas inadequadas em um ambiente profissional
+- Uso de linguagem ou imagens sexualizadas e atenção ou avanços sexuais de qualquer natureza
+- Trolling, comentários insultuosos ou depreciativos e ataques pessoais ou políticos
+- Assédio público ou privado
+- Publicação de informações privadas de outras pessoas, como endereço físico ou de e-mail, sem sua permissão explícita
+- Outras condutas que possam ser razoavelmente consideradas inadequadas em um ambiente profissional
 
 ### Responsabilidades de Aplicação
 

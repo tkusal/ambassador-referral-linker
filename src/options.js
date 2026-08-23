@@ -1,8 +1,10 @@
-const namefield = document.querySelector("#name");
-const error = document.querySelector("#error");
-const btnSave = document.querySelector("#btnSave");
-const chkLangNeutral = document.querySelector("#chkLangNeutral");
-const savedIdDisplay = document.querySelector("#savedIdDisplay");
+// @ts-check
+
+const namefield = /** @type {HTMLInputElement} */ (document.querySelector("#name"));
+const error = /** @type {HTMLElement} */ (document.querySelector("#error"));
+const btnSave = /** @type {HTMLButtonElement} */ (document.querySelector("#btnSave"));
+const chkLangNeutral = /** @type {HTMLInputElement} */ (document.querySelector("#chkLangNeutral"));
+const savedIdDisplay = /** @type {HTMLElement} */ (document.querySelector("#savedIdDisplay"));
 
 btnSave.onclick = (e) => {
   e.preventDefault();
@@ -19,7 +21,8 @@ btnSave.onclick = (e) => {
 
   const idRegex = /^[a-zA-Z0-9_-]+$/;
   if (!idRegex.test(contributorId)) {
-    error.textContent = "ID inválido (apenas letras, números, _ e -) / Invalid ID (letters, numbers, _ and - only).";
+    error.textContent =
+      "ID inválido (apenas letras, números, _ e -) / Invalid ID (letters, numbers, _ and - only).";
     setTimeout(function () {
       error.textContent = "";
     }, 3000);
@@ -30,11 +33,13 @@ btnSave.onclick = (e) => {
 
   savedIdDisplay.textContent = "ID Salvo / Saved ID: " + contributorId;
 
-  const status = document.getElementById("status");
-  status.textContent = chrome.i18n.getMessage("msgOptionsSaved");
-  setTimeout(function () {
-    status.textContent = "";
-  }, 750);
+  const status = /** @type {HTMLElement} */ (document.getElementById("status"));
+  if (status) {
+    status.textContent = chrome.i18n.getMessage("msgOptionsSaved");
+    setTimeout(function () {
+      status.textContent = "";
+    }, 750);
+  }
 };
 
 function trimContributorId(id) {
@@ -45,7 +50,7 @@ function saveOptions(contributorId, makeNeutralURL) {
   // Save both configurations concurrently to prevent race conditions
   chrome.storage.sync.set({
     contributorId: contributorId,
-    makeNeutralURL: makeNeutralURL
+    makeNeutralURL: makeNeutralURL,
   });
 }
 
@@ -54,7 +59,7 @@ function restoreOptions() {
     {
       contributorId: "",
       ambassadorId: "", // Fallback
-      makeNeutralURL: false
+      makeNeutralURL: false,
     },
     function (items) {
       const savedId = items.contributorId || items.ambassadorId || "";
@@ -68,11 +73,18 @@ function restoreOptions() {
 }
 
 function localizeUI() {
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    el.textContent = chrome.i18n.getMessage(el.getAttribute('data-i18n'));
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const msgKey = el.getAttribute("data-i18n");
+    if (msgKey) {
+      el.textContent = chrome.i18n.getMessage(msgKey);
+    }
   });
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    el.placeholder = chrome.i18n.getMessage(el.getAttribute('data-i18n-placeholder'));
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const inputEl = /** @type {HTMLInputElement} */ (el);
+    const msgKey = inputEl.getAttribute("data-i18n-placeholder");
+    if (msgKey) {
+      inputEl.placeholder = chrome.i18n.getMessage(msgKey);
+    }
   });
 }
 

@@ -1,12 +1,11 @@
+// @ts-check
+
 import { createReferralUrl } from "./url-utils.js";
 
 const extensionPrefix = "-msa"; // msa stands for Microsoft Student Ambassador
 const parentIdPagePostfix = extensionPrefix + "-page";
 const parentIdLinkPostfix = extensionPrefix + "-link";
-const regexIdPostfix = new RegExp(
-  parentIdPagePostfix + "$|" + parentIdLinkPostfix + "$",
-  "i"
-);
+const regexIdPostfix = new RegExp(parentIdPagePostfix + "$|" + parentIdLinkPostfix + "$", "i");
 
 const suitableSites = [
   "*://azure.microsoft.com/*",
@@ -25,12 +24,11 @@ const suitableSites = [
   "*://powerbi.microsoft.com/*",
   "*://reactor.microsoft.com/*",
   "*://studentambassadors.microsoft.com/*",
-  "*://techcommunity.microsoft.com/*"
+  "*://techcommunity.microsoft.com/*",
 ];
 
 chrome.contextMenus.onClicked.addListener(async function (itemData) {
-  const linkUrl =
-    itemData.linkUrl !== undefined ? itemData.linkUrl : itemData.pageUrl;
+  const linkUrl = itemData.linkUrl !== undefined ? itemData.linkUrl : itemData.pageUrl;
 
   const contributorId = itemData.menuItemId.replace(regexIdPostfix, "");
 
@@ -38,6 +36,7 @@ chrome.contextMenus.onClicked.addListener(async function (itemData) {
   const { makeNeutralURL = false } = await chrome.storage.sync.get("makeNeutralURL");
 
   const referralUrl = createReferralUrl(linkUrl, contributorId, makeNeutralURL);
+  console.debug("[Ambassador Linker] Generated URL:", referralUrl);
 
   await setClipboardUsingOffscreenDocument(referralUrl);
 });
@@ -66,6 +65,7 @@ async function setClipboardUsingOffscreenDocument(text) {
         await chrome.offscreen.closeDocument();
       } catch (e) {
         // Ignore errors when closing
+        console.error("[Ambassador Linker] Error closing offscreen document:", e);
       }
     }
   );
@@ -99,13 +99,15 @@ function updateContextMenus() {
   chrome.storage.sync.get(
     {
       contributorId: "",
-      ambassadorId: "" // Fallback for old version
+      ambassadorId: "", // Fallback for old version
     },
     function (items) {
       const activeId = items.contributorId || items.ambassadorId || "";
       if (activeId) {
+        console.debug("[Ambassador Linker] Updating context menus for ID:", activeId);
         createContextMenus(activeId);
       } else {
+        console.debug("[Ambassador Linker] No ID found, removing context menus");
         chrome.contextMenus.removeAll();
       }
     }
@@ -128,7 +130,10 @@ chrome.runtime.onStartup.addListener(() => {
 
 // React to option modifications automatically without sendMessage race conditions
 chrome.storage.onChanged.addListener((changes, areaName) => {
-  if (areaName === "sync" && (changes.contributorId || changes.ambassadorId || changes.makeNeutralURL)) {
+  if (
+    areaName === "sync" &&
+    (changes.contributorId || changes.ambassadorId || changes.makeNeutralURL)
+  ) {
     updateContextMenus();
   }
 });

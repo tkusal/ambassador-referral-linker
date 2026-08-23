@@ -1,6 +1,8 @@
+// @ts-check
+
 /**
  * Normalizes and appends the Contributor ID to a given URL, and optionally removes language paths.
- * 
+ *
  * @param {string} rawUrl The original URL string.
  * @param {string} contributorId The Contributor ID to append.
  * @param {boolean} makeNeutral Whether to make the URL language-neutral.
@@ -41,7 +43,7 @@ export function createReferralUrl(rawUrl, contributorId, makeNeutral) {
     // Matches /ll-cc, /ll-ccc, /ll-cccc, /ll-cccc-cc patterns (e.g., en-us, es-419, zh-hans, sr-latn-rs)
     const localeRegex = /^\/[a-zA-Z]{2}-([a-zA-Z]{2}|[0-9]{3}|[a-zA-Z]{4}(-[a-zA-Z]{2})?)(?=\/|$)/i;
     url.pathname = url.pathname.replace(localeRegex, "");
-    
+
     if (!url.pathname.startsWith("/")) {
       url.pathname = "/" + url.pathname;
     }
