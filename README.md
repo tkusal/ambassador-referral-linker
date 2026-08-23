@@ -32,6 +32,16 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 - **Optional Locale Cleaning:** Removes locale segments such as `/en-us/` or `/pt-br/` when language-neutral URLs are enabled.
 - **Lightweight:** Built with plain JavaScript and Manifest V3, with no runtime dependencies.
 
+## Browser Availability
+
+| Browser | Status    |
+| :------ | :-------- |
+| Chrome  | In review |
+| Edge    | In review |
+| Firefox | Planned   |
+| Opera   | Planned   |
+| Safari  | Planned   |
+
 ## Installation
 
 _(Links to the Chrome Web Store and Edge Add-ons will be added here once published.)_
@@ -130,6 +140,7 @@ npm test
 - `package.json`: Development and test configuration.
 
 ## Roadmap
+
 - [x] Migrate to Manifest V3
 - [x] Update URL handling for the current Contributor ID workflow
 - [x] UI/UX revamp and single Contributor ID workflow

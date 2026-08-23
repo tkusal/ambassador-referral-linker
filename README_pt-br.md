@@ -32,6 +32,16 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 - **Limpeza de Idioma Opcional:** Remove segmentos de idioma (ex: `/pt-br/` ou `/en-us/`) quando a opção de URLs neutras está habilitada.
 - **Leve (Lightweight):** Construído com JavaScript puro e Manifest V3, sem dependências de execução (runtime).
 
+## Disponibilidade nos Navegadores
+
+| Navegador | Status     |
+| :-------- | :--------- |
+| Chrome    | Em análise |
+| Edge      | Em análise |
+| Firefox   | Planejado  |
+| Opera     | Planejado  |
+| Safari    | Planejado  |
+
 ## Instalação
 
 _(Os links diretos para a Chrome Web Store e Edge Add-ons serão adicionados aqui após a publicação.)_
@@ -130,6 +140,7 @@ npm test
 - `package.json`: Configurações de desenvolvimento e testes.
 
 ## Roadmap
+
 - [x] Migrar para Manifest V3
 - [x] Atualizar tratamento de URL para o fluxo atual do Contributor ID
 - [x] Reformulação de UI/UX e fluxo de Contributor ID único

@@ -13,7 +13,7 @@ The Ambassador Referral Linker extension is designed with your privacy in mind. 
 - **No Developer Access:** The developer of this extension does not collect, receive, or have any access to your Contributor ID or any other personal data.
 - **No Analytics or Tracking:** This extension does not use any analytics software and does not track your behavior.
 - **No Backend Server:** There are no external servers or backends associated with this extension. All operations happen locally within your browser.
-- **No Browsing History Collection:** We do not collect, monitor, or store your browsing history. 
+- **No Browsing History Collection:** We do not collect, monitor, or store your browsing history.
 - **Microsoft Links:** The extension's sole purpose is to insert your Contributor ID into Microsoft links (via the `wt.mc_id` parameter). When you access or share these modified links, the identifier is naturally sent to and received by Microsoft as part of the URL.
 
 ## Data Sharing and Disclosure

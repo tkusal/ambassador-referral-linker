@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "format": "prettier --write \"src/**/*.{js,html,json}\" \"tests/**/*.js\" \"*.{md,json}\""
+    "build": "node scripts/build.js",
+    "format": "prettier --write \"{src,scripts,manifests}/**/*.{js,html,json}\" \"tests/**/*.js\" \"*.{md,json}\""
   },
   "keywords": [
     "microsoft",

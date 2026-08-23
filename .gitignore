@@ -350,3 +350,4 @@ MigrationBackup/
 .ionide/
 ambassador-referral-linker-v1.zip
 *.zip
+/dist
