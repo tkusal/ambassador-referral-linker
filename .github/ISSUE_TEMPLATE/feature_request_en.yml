@@ -1,0 +1,114 @@
+```yaml
+name: Feature Request - English
+description: Suggest a new feature or improvement for Ambassador Referral Linker
+title: "[Feature]: "
+labels:
+  - enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for your interest in improving Ambassador Referral Linker!
+
+        Before submitting a feature request, please check whether a similar idea has already been suggested.
+
+        Feature requests do not need to include a complete technical solution. Clearly describing the problem and expected behavior is often enough.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Feature category
+      description: Which area of the project does this suggestion relate to?
+      options:
+        - URL handling
+        - Supported Microsoft sites
+        - Language-neutral URLs
+        - Extension interface
+        - Localization / translations
+        - Browser compatibility
+        - Documentation
+        - Developer experience / testing
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: What problem would this feature solve, or what use case would it improve?
+      placeholder: |
+        Describe the situation, limitation, or workflow that motivated this request.
+
+        Example:
+        When I copy links from [...], I currently need to [...]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed solution
+      description: Describe how you would like the feature or improvement to work.
+      placeholder: |
+        Describe the expected behavior from a user's perspective.
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: Provide URLs, workflows, mockups, or other examples that may help explain the request. Do not include sensitive information or your real Contributor ID.
+      placeholder: |
+        Example URL:
+        https://learn.microsoft.com/...
+
+        If a Contributor ID is needed in an example, use:
+        studentamb_123456
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Have you considered any alternative solutions or workarounds?
+      placeholder: Describe any alternatives, workarounds, or related approaches you have considered.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Add any other information that may help us understand or evaluate the request.
+      placeholder: Related issues, screenshots, links, implementation ideas, browser-specific details, etc.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Would you like to help implement this feature?
+      description: This is optional and does not affect whether the request will be considered.
+      options:
+        - "Yes, I would like to work on it"
+        - "Maybe, with some guidance"
+        - "No, I am only suggesting the idea"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked that a similar feature request has not already been submitted.
+          required: true
+        - label: I have provided enough context to explain the problem or use case.
+          required: true
+        - label: I have not included sensitive information or my real Contributor ID.
+          required: true
+```

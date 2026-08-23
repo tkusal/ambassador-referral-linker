@@ -1,0 +1,141 @@
+```yaml
+name: Bug Report - English
+description: Report a problem with Ambassador Referral Linker
+title: "[Bug]: "
+labels:
+  - bug
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug!
+
+        Before submitting, please check whether the issue has already been reported.
+
+        > **Privacy:** Do not include your real Contributor ID or any sensitive information. Use `studentamb_123456` in examples.
+
+  - type: input
+    id: extension_version
+    attributes:
+      label: Extension version
+      description: Which version of Ambassador Referral Linker are you using?
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+      description: Which browser and version are you using?
+      placeholder: "Microsoft Edge 128"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: action
+    attributes:
+      label: Action
+      description: What were you trying to do when the problem occurred?
+      options:
+        - Copy page URL with Ambassador ID
+        - Copy link address with Ambassador ID
+        - Configure or save the Contributor ID
+        - Enable or disable language-neutral URLs
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language_neutral
+    attributes:
+      label: Language-neutral URLs
+      description: Was the language-neutral URL option enabled when the problem occurred?
+      options:
+        - "Yes"
+        - "No"
+        - Not applicable
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: original_url
+    attributes:
+      label: Original URL
+      description: Enter the Microsoft URL involved in the issue. Do not include sensitive information.
+      placeholder: "https://learn.microsoft.com/pt-br/training/"
+    validations:
+      required: false
+
+  - type: input
+    id: generated_url
+    attributes:
+      label: Generated URL
+      description: Enter the URL generated or copied by the extension, if applicable. Replace your real Contributor ID with `studentamb_123456`.
+      placeholder: "https://learn.microsoft.com/training/?wt.mc_id=studentamb_123456"
+    validations:
+      required: false
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Steps to reproduce
+      description: Describe the steps needed to reproduce the problem.
+      placeholder: |
+        1. Open https://learn.microsoft.com/...
+        2. Right-click on...
+        3. Select...
+        4. Observe...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Expected behavior
+      description: What did you expect the extension to do?
+      placeholder: Describe the expected result.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Actual behavior
+      description: What happened instead?
+      placeholder: Describe the actual result or error.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or recordings
+      description: Add screenshots or a short recording if they help demonstrate the problem. Make sure they do not contain sensitive information.
+      placeholder: Drag and drop images or recordings here.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Additional context
+      description: Add any other information that may help us investigate the issue.
+      placeholder: Additional details, related issues, unusual browser settings, extensions that may interfere, etc.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Before submitting
+      options:
+        - label: I checked that this issue has not already been reported.
+          required: true
+        - label: I am using the latest available version of the extension, or I have confirmed that the issue also occurs on the latest version.
+          required: true
+        - label: I have not included my real Contributor ID or other sensitive information.
+          required: true
+```

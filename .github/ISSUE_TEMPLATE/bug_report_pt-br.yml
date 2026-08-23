@@ -1,0 +1,141 @@
+```yaml
+name: Relatar um Bug - Português (Brasil)
+description: Relate um problema com o Ambassador Referral Linker
+title: "[Bug]: "
+labels:
+  - bug
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por dedicar seu tempo para relatar um bug!
+
+        Antes de enviar, verifique se o problema já não foi reportado anteriormente.
+
+        > **Privacidade:** Não inclua seu Contributor ID real nem qualquer informação sensível. Utilize `studentamb_123456` nos exemplos.
+
+  - type: input
+    id: extension_version
+    attributes:
+      label: Versão da extensão
+      description: Qual versão do Ambassador Referral Linker você está utilizando?
+      placeholder: "1.0.0"
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: Navegador e versão
+      description: Qual navegador e versão você está utilizando?
+      placeholder: "Microsoft Edge 128"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: action
+    attributes:
+      label: Ação
+      description: O que você estava tentando fazer quando o problema ocorreu?
+      options:
+        - Copiar a URL da página com o Ambassador ID
+        - Copiar o endereço de um link com o Ambassador ID
+        - Configurar ou salvar o Contributor ID
+        - Ativar ou desativar URLs neutras de idioma
+        - Outro
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language_neutral
+    attributes:
+      label: URLs neutras de idioma
+      description: A opção de URLs neutras de idioma estava ativada quando o problema ocorreu?
+      options:
+        - "Sim"
+        - "Não"
+        - Não se aplica
+        - Não tenho certeza
+    validations:
+      required: true
+
+  - type: input
+    id: original_url
+    attributes:
+      label: URL original
+      description: Informe a URL da Microsoft relacionada ao problema. Não inclua informações sensíveis.
+      placeholder: "https://learn.microsoft.com/pt-br/training/"
+    validations:
+      required: false
+
+  - type: input
+    id: generated_url
+    attributes:
+      label: URL gerada
+      description: Informe a URL gerada ou copiada pela extensão, quando aplicável. Substitua seu Contributor ID real por `studentamb_123456`.
+      placeholder: "https://learn.microsoft.com/training/?wt.mc_id=studentamb_123456"
+    validations:
+      required: false
+
+  - type: textarea
+    id: reproduction_steps
+    attributes:
+      label: Passos para reproduzir
+      description: Descreva os passos necessários para reproduzir o problema.
+      placeholder: |
+        1. Acesse https://learn.microsoft.com/...
+        2. Clique com o botão direito em...
+        3. Selecione...
+        4. Observe...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: Comportamento esperado
+      description: O que você esperava que a extensão fizesse?
+      placeholder: Descreva o resultado esperado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual_behavior
+    attributes:
+      label: Comportamento observado
+      description: O que aconteceu no lugar do comportamento esperado?
+      placeholder: Descreva o resultado obtido ou o erro apresentado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Capturas de tela ou gravações
+      description: Adicione capturas de tela ou uma pequena gravação caso ajudem a demonstrar o problema. Certifique-se de que não contenham informações sensíveis.
+      placeholder: Arraste e solte imagens ou gravações aqui.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Contexto adicional
+      description: Adicione qualquer outra informação que possa ajudar na investigação do problema.
+      placeholder: Detalhes adicionais, issues relacionadas, configurações incomuns do navegador, extensões que possam interferir etc.
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Antes de enviar
+      options:
+        - label: Verifiquei que este problema ainda não foi reportado.
+          required: true
+        - label: Estou utilizando a versão mais recente disponível da extensão ou confirmei que o problema também ocorre na versão mais recente.
+          required: true
+        - label: Não incluí meu Contributor ID real nem outras informações sensíveis.
+          required: true
+```

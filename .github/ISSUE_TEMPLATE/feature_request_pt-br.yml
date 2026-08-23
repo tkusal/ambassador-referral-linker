@@ -1,0 +1,114 @@
+```yaml
+name: Sugestão de Funcionalidade - Português (Brasil)
+description: Sugira uma nova funcionalidade ou melhoria para o Ambassador Referral Linker
+title: "[Feature]: "
+labels:
+  - enhancement
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado pelo interesse em melhorar o Ambassador Referral Linker!
+
+        Antes de enviar uma sugestão, verifique se uma ideia semelhante já não foi proposta anteriormente.
+
+        Não é necessário apresentar uma solução técnica completa. Descrever claramente o problema e o comportamento esperado geralmente é suficiente.
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Categoria da funcionalidade
+      description: A qual área do projeto esta sugestão está relacionada?
+      options:
+        - Processamento de URLs
+        - Sites Microsoft suportados
+        - URLs neutras de idioma
+        - Interface da extensão
+        - Localização / traduções
+        - Compatibilidade com navegadores
+        - Documentação
+        - Experiência de desenvolvimento / testes
+        - Outro
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problema ou caso de uso
+      description: Qual problema esta funcionalidade resolveria ou qual caso de uso ela melhoraria?
+      placeholder: |
+        Descreva a situação, limitação ou fluxo de trabalho que motivou esta sugestão.
+
+        Exemplo:
+        Quando copio links de [...], atualmente preciso [...]
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solução proposta
+      description: Descreva como você gostaria que a nova funcionalidade ou melhoria funcionasse.
+      placeholder: |
+        Descreva o comportamento esperado do ponto de vista do usuário.
+    validations:
+      required: true
+
+  - type: textarea
+    id: examples
+    attributes:
+      label: Exemplos
+      description: Forneça URLs, fluxos, mockups ou outros exemplos que possam ajudar a explicar a sugestão. Não inclua informações sensíveis nem seu Contributor ID real.
+      placeholder: |
+        Exemplo de URL:
+        https://learn.microsoft.com/...
+
+        Caso seja necessário utilizar um Contributor ID em um exemplo, use:
+        studentamb_123456
+    validations:
+      required: false
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternativas consideradas
+      description: Você considerou alguma solução alternativa ou forma de contornar o problema?
+      placeholder: Descreva alternativas, soluções temporárias ou abordagens relacionadas que tenha considerado.
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional_context
+    attributes:
+      label: Contexto adicional
+      description: Adicione qualquer outra informação que possa ajudar a compreender ou avaliar a sugestão.
+      placeholder: Issues relacionadas, capturas de tela, links, ideias de implementação, detalhes específicos de navegador etc.
+    validations:
+      required: false
+
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Você gostaria de ajudar a implementar esta funcionalidade?
+      description: Esta resposta é opcional e não interfere na avaliação da sugestão.
+      options:
+        - "Sim, gostaria de trabalhar na implementação"
+        - "Talvez, com alguma orientação"
+        - "Não, estou apenas sugerindo a ideia"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Antes de enviar
+      options:
+        - label: Verifiquei que uma sugestão semelhante ainda não foi enviada.
+          required: true
+        - label: Forneci contexto suficiente para explicar o problema ou caso de uso.
+          required: true
+        - label: Não incluí informações sensíveis nem meu Contributor ID real.
+          required: true
+```
