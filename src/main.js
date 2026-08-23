@@ -29,7 +29,7 @@ const suitableSites = [
 ];
 
 chrome.contextMenus.onClicked.addListener(async function (itemData) {
-  const linkUrl = itemData.linkUrl !== undefined ? itemData.linkUrl : (itemData.pageUrl || "");
+  const linkUrl = itemData.linkUrl !== undefined ? itemData.linkUrl : itemData.pageUrl || "";
 
   const items = await chrome.storage.sync.get(["contributorId", "makeNeutralURL"]);
   const contributorId = items.contributorId ? String(items.contributorId) : "";

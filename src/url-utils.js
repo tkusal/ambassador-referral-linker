@@ -40,9 +40,49 @@ export function createReferralUrl(rawUrl, contributorId, makeNeutral) {
 
   // Remove language-locale if requested
   if (makeNeutral) {
-    const validLangs = ["en", "es", "pt", "fr", "de", "it", "ja", "ko", "zh", "ru", "nl", "cs", "pl", "tr", "sv", "fi", "da", "nb", "hu", "el", "he", "id", "th", "vi", "ms", "bg", "hr", "ro", "sk", "sl", "sr", "uk", "et", "lv", "lt", "ar", "hi"];
-    const localeMatch = url.pathname.match(/^\/([a-zA-Z]{2})-([a-zA-Z]{2}|[0-9]{3}|[a-zA-Z]{4}(-[a-zA-Z]{2})?)(?=\/|$)/i);
-    
+    const validLangs = [
+      "en",
+      "es",
+      "pt",
+      "fr",
+      "de",
+      "it",
+      "ja",
+      "ko",
+      "zh",
+      "ru",
+      "nl",
+      "cs",
+      "pl",
+      "tr",
+      "sv",
+      "fi",
+      "da",
+      "nb",
+      "hu",
+      "el",
+      "he",
+      "id",
+      "th",
+      "vi",
+      "ms",
+      "bg",
+      "hr",
+      "ro",
+      "sk",
+      "sl",
+      "sr",
+      "uk",
+      "et",
+      "lv",
+      "lt",
+      "ar",
+      "hi",
+    ];
+    const localeMatch = url.pathname.match(
+      /^\/([a-zA-Z]{2})-([a-zA-Z]{2}|[0-9]{3}|[a-zA-Z]{4}(-[a-zA-Z]{2})?)(?=\/|$)/i
+    );
+
     if (localeMatch && validLangs.includes(localeMatch[1].toLowerCase())) {
       url.pathname = url.pathname.replace(localeMatch[0], "");
     }

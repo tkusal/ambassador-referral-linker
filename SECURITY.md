@@ -6,7 +6,7 @@ Currently, only the latest version of the extension is supported with security u
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within this project, please **do not** report it by creating a public GitHub issue. 
+If you discover a security vulnerability within this project, please **do not** report it by creating a public GitHub issue.
 
 Instead, please send an email directly to the maintainers or use GitHub's private vulnerability reporting feature on this repository.
 

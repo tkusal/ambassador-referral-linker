@@ -115,10 +115,7 @@ test("createReferralUrl - language-neutral: does NOT strip non-locale path /ai-m
     "studentamb_123456",
     true
   );
-  assert.strictEqual(
-    result,
-    "https://azure.microsoft.com/ai-ml/azure?wt.mc_id=studentamb_123456"
-  );
+  assert.strictEqual(result, "https://azure.microsoft.com/ai-ml/azure?wt.mc_id=studentamb_123456");
 });
 
 test("createReferralUrl - language-neutral: does NOT strip non-locale path /how-to/", () => {
