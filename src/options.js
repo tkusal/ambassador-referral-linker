@@ -42,7 +42,25 @@ btnSave.onclick = (e) => {
 };
 
 function trimContributorId(id) {
-  return id.replace(/[\?&][wW][tT]\.[mM][cC]_[iI][dD]=/, "").trim();
+  const trimmed = id.trim();
+
+  try {
+    const url = new URL(trimmed);
+    for (const key of url.searchParams.keys()) {
+      if (key.toLowerCase() === "wt.mc_id") {
+        return (url.searchParams.get(key) || "").trim();
+      }
+    }
+  } catch (e) {
+    // Não é uma URL válida, ignora e tenta regex
+  }
+
+  const match = trimmed.match(/(?:[\?&]?wt\.mc_id=)([a-zA-Z0-9_-]+)/i);
+  if (match) {
+    return match[1].trim();
+  }
+
+  return trimmed;
 }
 
 function saveOptions(contributorId, makeNeutralURL) {

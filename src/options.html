@@ -108,6 +108,12 @@
       color: #d13438;
       font-weight: 500;
       min-height: 20px;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    #error:empty {
+      opacity: 0;
     }
 
     #status {
@@ -117,6 +123,12 @@
       text-align: center;
       margin-top: 10px;
       min-height: 20px;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    #status:empty {
+      opacity: 0;
     }
 
     .separator {
@@ -188,7 +200,7 @@
       <form>
         <label for="name" data-i18n="lblContributorId">Contributor ID</label>
         <input type="text" id="name" data-i18n-placeholder="placeholderId" autocomplete="off" />
-        <div id="error"></div>
+        <div id="error" aria-live="assertive"></div>
 
         <div class="separator">
           <label class="checkbox-container">

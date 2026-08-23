@@ -11,6 +11,9 @@ const manifestsDir = path.join(rootDir, "manifests");
 const distDir = path.join(rootDir, "dist");
 
 const browsers = ["chrome", "edge", "firefox", "opera", "safari"];
+const pkgPath = path.join(rootDir, "package.json");
+const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"));
+const version = pkg.version;
 
 console.log("Starting build process...");
 
@@ -27,11 +30,17 @@ for (const browser of browsers) {
   // 1. Copy src to dist/<browser>
   fs.cpSync(srcDir, browserDistDir, { recursive: true });
 
-  // 2. Copy manifest
+  // 2. Copy manifest and inject version
   const manifestPath = path.join(manifestsDir, `${browser}.json`);
   if (fs.existsSync(manifestPath)) {
-    fs.copyFileSync(manifestPath, path.join(browserDistDir, "manifest.json"));
-    console.log(`Successfully built extension for ${browser} in dist/${browser}`);
+    const manifestContent = fs.readFileSync(manifestPath, "utf-8");
+    const manifestObj = JSON.parse(manifestContent);
+    manifestObj.version = version;
+    fs.writeFileSync(
+      path.join(browserDistDir, "manifest.json"),
+      JSON.stringify(manifestObj, null, 2)
+    );
+    console.log(`Successfully built extension for ${browser} in dist/${browser} (v${version})`);
   } else {
     console.error(`Warning: Manifest not found for ${browser} at ${manifestPath}`);
   }

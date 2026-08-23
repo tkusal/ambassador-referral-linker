@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 // As of January 2023, the navigator.clipboard API necessitates the element to be focused, but offscreen documents cannot be focused.
 // Therefore, we must resort to using document.execCommand()
 function copyToClipboard(text) {
-  var copyFrom = document.createElement("textarea");
+  const copyFrom = document.createElement("textarea");
   copyFrom.textContent = text;
   document.body.appendChild(copyFrom);
   copyFrom.select();

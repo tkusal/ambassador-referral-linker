@@ -134,8 +134,11 @@ function updateContextMenus() {
 chrome.runtime.onInstalled.addListener(async () => {
   // Run storage migration on install or upgrade
   const items = await chrome.storage.sync.get(["ambassadorId", "contributorId"]);
-  if (items.ambassadorId && !items.contributorId) {
-    await chrome.storage.sync.set({ contributorId: items.ambassadorId });
+  if (items.ambassadorId) {
+    if (!items.contributorId) {
+      await chrome.storage.sync.set({ contributorId: items.ambassadorId });
+    }
+    await chrome.storage.sync.remove("ambassadorId");
   }
   updateContextMenus();
 });
