@@ -19,7 +19,7 @@ btnSave.onclick = (e) => {
     return;
   }
 
-  const idRegex = /^[a-zA-Z0-9_-]+$/;
+  const idRegex = /^studentamb_[0-9]+$/i;
   if (!idRegex.test(contributorId)) {
     error.textContent = chrome.i18n.getMessage("msgErrorInvalidId");
     setTimeout(function () {
