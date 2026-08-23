@@ -34,17 +34,19 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 
 ## Browser Availability
 
-| Browser | Status    |
-| :------ | :-------- |
-| Chrome  | In review |
-| Edge    | In review |
-| Firefox | Planned   |
-| Opera   | Planned   |
-| Safari  | Planned   |
+| Browser | Status                                                                                          |
+| :------ | :---------------------------------------------------------------------------------------------- |
+| Chrome  | In review                                                                                       |
+| Edge    | [Available](https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh) |
+| Firefox | Planned                                                                                         |
+| Opera   | Planned                                                                                         |
+| Safari  | Planned                                                                                         |
 
 ## Installation
 
-_(Links to the Chrome Web Store and Edge Add-ons will be added here once published.)_
+[![Get it from Microsoft Edge Add-ons](assets/edge-badge.png)](https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh)
+
+_(Chrome Web Store link will be added here once published.)_
 
 **Manual Installation (Developer Mode):**
 
@@ -150,7 +152,7 @@ npm test
 - [x] Refactor URL handling into testable utilities
 - [x] Add automated URL transformation tests
 - [ ] Publish to Chrome Web Store (In review)
-- [ ] Publish to Microsoft Edge Add-ons (In review)
+- [x] Publish to Microsoft Edge Add-ons
 - [x] Restructure repository for multi-browser support
 - [ ] Make the extension compatible with Firefox (handle offscreen API and background scripts differences)
 - [ ] Publish to Firefox Add-ons
