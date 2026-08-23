@@ -130,14 +130,14 @@ npm test
 - `package.json`: Configurações de desenvolvimento e testes.
 
 ## Roadmap
-
 - [x] Migrar para Manifest V3
-- [x] Atualizar tratamento de URL para o workflow atual do Contributor ID
-- [x] Reformulação de UI/UX e workflow de ID único de Contributor
-- [x] Refatorar manipulação de URLs em utilitários testáveis
+- [x] Atualizar tratamento de URL para o fluxo atual do Contributor ID
+- [x] Reformulação de UI/UX e fluxo de Contributor ID único
+- [x] Refatorar manipulação de URL em utilitários testáveis
 - [x] Adicionar testes automatizados de transformação de URL
 - [ ] Publicar na Chrome Web Store
-- [ ] Publicar no Microsoft Edge Add-ons
+- [ ] Publicar nos Complementos do Microsoft Edge
+- [ ] Tornar a extensão compatível com o Firefox (adaptar a API offscreen e background scripts)
 
 ## Créditos
 

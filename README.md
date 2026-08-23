@@ -130,7 +130,6 @@ npm test
 - `package.json`: Development and test configuration.
 
 ## Roadmap
-
 - [x] Migrate to Manifest V3
 - [x] Update URL handling for the current Contributor ID workflow
 - [x] UI/UX revamp and single Contributor ID workflow
@@ -138,6 +137,7 @@ npm test
 - [x] Add automated URL transformation tests
 - [ ] Publish to Chrome Web Store
 - [ ] Publish to Microsoft Edge Add-ons
+- [ ] Make the extension compatible with Firefox (handle offscreen API and background scripts differences)
 
 ## Credits
 
