@@ -133,7 +133,10 @@ npm test
 
 ## Estrutura do Projeto
 
-- `/src`: Código fonte da extensão, incluindo o manifest, interface, lógica em background e utilitários de URL.
+- `/src`: Código fonte da extensão, incluindo a interface, lógica em background e utilitários de URL.
+- `/manifests`: Arquivos manifest específicos para cada navegador.
+- `/scripts`: Scripts de compilação (build) para gerar as extensões.
+- `/dist`: Saída de build gerada automaticamente para cada navegador.
 - `/src/_locales`: Arquivos de internacionalização (i18n) para Inglês e Português.
 - `/tests`: Testes automatizados para a lógica de transformação de URL.
 - `/assets`: Imagens e mídia utilizadas na documentação.
@@ -146,9 +149,13 @@ npm test
 - [x] Reformulação de UI/UX e fluxo de Contributor ID único
 - [x] Refatorar manipulação de URL em utilitários testáveis
 - [x] Adicionar testes automatizados de transformação de URL
-- [ ] Publicar na Chrome Web Store
-- [ ] Publicar nos Complementos do Microsoft Edge
+- [ ] Publicar na Chrome Web Store (Em análise)
+- [ ] Publicar nos Complementos do Microsoft Edge (Em análise)
+- [x] Reorganizar repositório para suportar múltiplos navegadores
 - [ ] Tornar a extensão compatível com o Firefox (adaptar a API offscreen e background scripts)
+- [ ] Publicar nos Complementos do Firefox
+- [ ] Publicar nos Complementos do Opera
+- [ ] Publicar no Safari
 
 ## Créditos
 
