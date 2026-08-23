@@ -20,11 +20,17 @@ const suitableSites = [
   "*://events.microsoft.com/*",
   "*://imaginecup.microsoft.com/*",
   "*://learn.microsoft.com/*",
-  "*://*.microsoft.com/*",
-  "*://powerbi.microsoft.com/*",
+  "*://mvp.microsoft.com/*",
+  "*://powerbi.microsoft.com/blog*",
   "*://reactor.microsoft.com/*",
-  "*://studentambassadors.microsoft.com/*",
   "*://techcommunity.microsoft.com/*",
+  "*://*.microsoft.com/insidetrack*",
+  "*://*.microsoft.com/microsoft-365-copilot*",
+  "*://*.microsoft.com/microsoft-cloud/blog*",
+  "*://*.microsoft.com/microsoft-copilot/for-individuals*",
+  "*://*.microsoft.com/microsoft-fabric*",
+  "*://*.microsoft.com/power-platform*",
+  "*://*.microsoft.com/startups*",
 ];
 
 chrome.contextMenus.onClicked.addListener(async function (itemData) {

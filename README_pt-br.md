@@ -78,14 +78,19 @@ A extensão atualmente suporta os seguintes sites da Microsoft:
 - developer.microsoft.com
 - dotnet.microsoft.com
 - events.microsoft.com
-- foundershub.startups.microsoft.com
 - imaginecup.microsoft.com
 - learn.microsoft.com
-- microsoft.com (e subdomínios/rotas como insidetrack, startups, fabric, cloud, etc)
+- learn.microsoft.com/copilot
+- microsoft.com/insidetrack
+- microsoft.com/microsoft-365-copilot
+- microsoft.com/microsoft-cloud/blog
+- microsoft.com/microsoft-copilot/for-individuals
+- microsoft.com/microsoft-fabric
+- microsoft.com/power-platform
+- microsoft.com/startups
 - mvp.microsoft.com
-- powerbi.microsoft.com
+- powerbi.microsoft.com/blog
 - reactor.microsoft.com
-- studentambassadors.microsoft.com
 - techcommunity.microsoft.com
 
 Sentindo falta de um site da Microsoft que deveria ser suportado? Por favor, abra uma _issue_ ou envie um _pull request_.
