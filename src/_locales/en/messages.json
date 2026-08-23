@@ -39,7 +39,7 @@
     "message": "ID cannot be empty."
   },
   "msgErrorInvalidId": {
-    "message": "Invalid ID (letters, numbers, _ and - only)."
+    "message": "Invalid ID. Use the format studentamb_123456."
   },
   "msgSavedIdPrefix": {
     "message": "Saved ID: "

@@ -39,7 +39,7 @@
     "message": "O ID não pode ser vazio."
   },
   "msgErrorInvalidId": {
-    "message": "ID inválido (apenas letras, números, _ e -)."
+    "message": "ID inválido. Use o formato studentamb_123456."
   },
   "msgSavedIdPrefix": {
     "message": "ID Salvo: "
