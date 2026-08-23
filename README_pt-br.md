@@ -154,7 +154,7 @@ npm test
 - [ ] Publicar na Chrome Web Store (Em análise)
 - [x] Publicar nos Complementos do Microsoft Edge
 - [x] Reorganizar repositório para suportar múltiplos navegadores
-- [ ] Tornar a extensão compatível com o Firefox (adaptar a API offscreen e background scripts)
+- [x] Tornar a extensão compatível com o Firefox (adaptar a API offscreen e background scripts)
 - [ ] Publicar nos Complementos do Firefox
 - [ ] Publicar nos Complementos do Opera (Em análise)
 - [ ] Publicar no Safari

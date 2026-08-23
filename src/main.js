@@ -42,33 +42,43 @@ chrome.contextMenus.onClicked.addListener(async function (itemData) {
 });
 
 async function setClipboardUsingOffscreenDocument(text) {
-  // Create offscreen document if it doesn't exist
-  try {
-    await chrome.offscreen.createDocument({
-      url: "offscreen.html",
-      reasons: [chrome.offscreen.Reason.CLIPBOARD],
-      justification: "Write text to the clipboard.",
-    });
-  } catch (e) {
-    // If the offscreen document already exists, an error will be thrown. This is expected.
-  }
-
-  // Send message to offscreen document and close it after copy
-  chrome.runtime.sendMessage(
-    {
-      type: "copy-to-clipboard",
-      target: "offscreen",
-      data: text,
-    },
-    async () => {
-      try {
-        await chrome.offscreen.closeDocument();
-      } catch (e) {
-        // Ignore errors when closing
-        console.error("[Ambassador Linker] Error closing offscreen document:", e);
-      }
+  // Check if offscreen API is available (Chrome, Edge, Opera)
+  if (chrome.offscreen) {
+    // Create offscreen document if it doesn't exist
+    try {
+      await chrome.offscreen.createDocument({
+        url: "offscreen.html",
+        reasons: [chrome.offscreen.Reason.CLIPBOARD],
+        justification: "Write text to the clipboard.",
+      });
+    } catch (e) {
+      // If the offscreen document already exists, an error will be thrown. This is expected.
     }
-  );
+
+    // Send message to offscreen document and close it after copy
+    chrome.runtime.sendMessage(
+      {
+        type: "copy-to-clipboard",
+        target: "offscreen",
+        data: text,
+      },
+      async () => {
+        try {
+          await chrome.offscreen.closeDocument();
+        } catch (e) {
+          // Ignore errors when closing
+          console.error("[Ambassador Linker] Error closing offscreen document:", e);
+        }
+      }
+    );
+  } else {
+    // Fallback for Firefox and Safari (where chrome.offscreen is not supported)
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (e) {
+      console.error("[Ambassador Linker] Error copying to clipboard via navigator.clipboard:", e);
+    }
+  }
 }
 
 function createContextMenus(contributorId) {
