@@ -44,9 +44,7 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 
 ## Installation
 
-<a href="https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp"><img src="assets/chrome-badge.png" height="60" alt="Get it from the Chrome Web Store"></a>
-
-<a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Get it from Microsoft Edge Add-ons"></a>
+<a href="https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp"><img src="assets/chrome-badge.png" height="60" alt="Get it from the Chrome Web Store"></a> <a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Get it from Microsoft Edge Add-ons"></a>
 
 **Manual Installation (Developer Mode):**
 
