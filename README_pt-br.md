@@ -34,19 +34,19 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 
 ## Disponibilidade nos Navegadores
 
-| Navegador | Status                                                                                           |
-| :-------- | :----------------------------------------------------------------------------------------------- |
-| Chrome    | Em análise                                                                                       |
-| Edge      | [Disponível](https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh) |
-| Firefox   | Planejado                                                                                        |
-| Opera     | Em análise                                                                                       |
-| Safari    | Planejado                                                                                        |
+| Navegador | Status                                                                                                            |
+| :-------- | :---------------------------------------------------------------------------------------------------------------- |
+| Chrome    | [Disponível](https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp) |
+| Edge      | [Disponível](https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh)                  |
+| Firefox   | Planejado                                                                                                         |
+| Opera     | Em análise                                                                                                        |
+| Safari    | Planejado                                                                                                         |
 
 ## Instalação
 
-<a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Obtenha no Microsoft Edge Add-ons"></a>
+<a href="https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp"><img src="assets/chrome-badge.png" height="60" alt="Obtenha na Chrome Web Store"></a>
 
-_(O link direto para a Chrome Web Store será adicionado aqui após a publicação.)_
+<a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Obtenha no Microsoft Edge Add-ons"></a>
 
 **Instalação Manual (Modo Desenvolvedor):**
 
@@ -159,7 +159,7 @@ npm test
 - [x] Reformulação de UI/UX e fluxo de Contributor ID único
 - [x] Refatorar manipulação de URL em utilitários testáveis
 - [x] Adicionar testes automatizados de transformação de URL
-- [ ] Publicar na Chrome Web Store (Em análise)
+- [x] Publicar na Chrome Web Store
 - [x] Publicar nos Complementos do Microsoft Edge
 - [x] Reorganizar repositório para suportar múltiplos navegadores
 - [x] Tornar a extensão compatível com o Firefox (adaptar a API offscreen e background scripts)
