@@ -38,13 +38,13 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 | :------ | :--------------------------------------------------------------------------------------------------------------- |
 | Chrome  | [Available](https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp) |
 | Edge    | [Available](https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh)                  |
-| Firefox | Planned                                                                                                          |
+| Firefox | [Available](https://addons.mozilla.org/pt-BR/firefox/addon/ambassador-referral-linker/)                          |
 | Opera   | In review                                                                                                        |
 | Safari  | Planned                                                                                                          |
 
 ## Installation
 
-<a href="https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp"><img src="assets/chrome-badge.png" height="60" alt="Get it from the Chrome Web Store"></a> <a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Get it from Microsoft Edge Add-ons"></a>
+<a href="https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp"><img src="assets/chrome-badge.png" height="60" alt="Get it from the Chrome Web Store"></a> <a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Get it from Microsoft Edge Add-ons"></a> <a href="https://addons.mozilla.org/pt-BR/firefox/addon/ambassador-referral-linker/"><img src="assets/firefox-badge.png" height="60" alt="Get it from Firefox Browser Add-ons"></a>
 
 **Manual Installation (Developer Mode):**
 
@@ -161,7 +161,7 @@ npm test
 - [x] Publish to Microsoft Edge Add-ons
 - [x] Restructure repository for multi-browser support
 - [x] Make the extension compatible with Firefox (handle offscreen API and background scripts differences)
-- [ ] Publish to Firefox Add-ons
+- [x] Publish to Firefox Add-ons
 - [ ] Publish to Opera Add-ons (In review)
 - [ ] Publish to Safari
 

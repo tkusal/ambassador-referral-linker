@@ -38,13 +38,13 @@ https://learn.microsoft.com/azure/?wt.mc_id=studentamb_123456
 | :-------- | :---------------------------------------------------------------------------------------------------------------- |
 | Chrome    | [Disponível](https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp) |
 | Edge      | [Disponível](https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh)                  |
-| Firefox   | Planejado                                                                                                         |
+| Firefox   | [Disponível](https://addons.mozilla.org/pt-BR/firefox/addon/ambassador-referral-linker/)                          |
 | Opera     | Em análise                                                                                                        |
 | Safari    | Planejado                                                                                                         |
 
 ## Instalação
 
-<a href="https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp"><img src="assets/chrome-badge.png" height="60" alt="Obtenha na Chrome Web Store"></a> <a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Obtenha no Microsoft Edge Add-ons"></a>
+<a href="https://chromewebstore.google.com/detail/ambassador-referral-linke/andakdkbonjlmcoocgjfanknedododlp"><img src="assets/chrome-badge.png" height="60" alt="Obtenha na Chrome Web Store"></a> <a href="https://microsoftedge.microsoft.com/addons/detail/nbjblhjldkjffghlpnjlnccjeljehjbh"><img src="assets/edge-badge.png" height="60" alt="Obtenha no Microsoft Edge Add-ons"></a> <a href="https://addons.mozilla.org/pt-BR/firefox/addon/ambassador-referral-linker/"><img src="assets/firefox-badge.png" height="60" alt="Obtenha nos Complementos para Firefox"></a>
 
 **Instalação Manual (Modo Desenvolvedor):**
 
@@ -161,7 +161,7 @@ npm test
 - [x] Publicar nos Complementos do Microsoft Edge
 - [x] Reorganizar repositório para suportar múltiplos navegadores
 - [x] Tornar a extensão compatível com o Firefox (adaptar a API offscreen e background scripts)
-- [ ] Publicar nos Complementos do Firefox
+- [x] Publicar nos Complementos do Firefox
 - [ ] Publicar nos Complementos do Opera (Em análise)
 - [ ] Publicar no Safari
 
